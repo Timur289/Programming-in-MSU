@@ -12,9 +12,9 @@ sem_t take_armchair;
 sem_t barber;
 sem_t hall;
 
-void *fbarber() 
+void *fbarber(void *arg)
 {
-	while(true)	
+	while(true)
 	{
 		sem_wait(&barber); // Брадобрей блокируется на семафоре, т.к. клиентов нет
 		sleep(1);
@@ -23,7 +23,7 @@ void *fbarber()
 	return NULL;
 }
 
-void *fclient(void *arg) 
+void *fclient(void *arg)
 {
 	int id=*(int*)arg;
 	sem_post(&sem);
@@ -42,13 +42,13 @@ void *fclient(void *arg)
 	sem_post(&take_armchair); // Клиент освободил кресло
 	return NULL;
 }
-	
-int main(void) 
+
+int main(void)
 {
 	int loc_id, p;
 	pthread_t barberr, clients[13];
 	sem_init(&sem,0,0);
-	sem_init(&sofa,0,5);											
+	sem_init(&sofa,0,5);
 	sem_init(&take_armchair,0,1);
 	sem_init(&hall,0,8);
 	sem_init(&barber,0,0);
@@ -57,8 +57,8 @@ int main(void)
 	{
 		p=pthread_create(&clients[loc_id], NULL, &fclient, &loc_id);
 		if(p)
-		{	
-			printf(" --- Client %d did not arrive...", loc_id); 
+		{
+			printf(" --- Client %d did not arrive...", loc_id);
 			return 	EXIT_FAILURE;
 		}
 		sem_wait(&sem);
@@ -67,8 +67,8 @@ int main(void)
 	{
 		p=pthread_join(clients[loc_id], NULL);
 		if(p)
-		{	
-			printf(" --- Client %d did not arrive...", loc_id); 
+		{
+			printf(" --- Client %d did not arrive...", loc_id);
 			return 	EXIT_FAILURE;
 		}
 	}
@@ -79,4 +79,3 @@ int main(void)
 	pthread_mutex_destroy(&process);
 	return EXIT_SUCCESS;
 }
-	
