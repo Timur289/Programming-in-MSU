@@ -1,0 +1,5 @@
+#!/bin/sh
+# test_in1
+echo "Введи фамилию и имя"
+read name1 name2
+echo $name2 $name1

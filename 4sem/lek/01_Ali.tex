@@ -1,0 +1,176 @@
+\chapter{Признаки сходимости числовых рядов с неотрицательными членами}
+\centerline{ \bf Автор: Велиев Али} \vskip 1cm
+
+\begin{object}
+Ряд $\sum{a_n}$ называется \textbf{рядом с неотрицательными членами}, если $\forall\ n$ имеем $a_n\ge0$
+\end{object}
+
+
+\begin{object}
+Пусть $\sum{a_n}$ и $\sum{b_n}$ - два ряда с неотрицательными членами, и пусть начиная с некоторого $n_0 \forall\ n>n_0$ имеем $0\le{a_n}\le{b_n}$. Тогда ряд $\sum{b_n}$ называется \textbf{мажорантой} ряда $\sum{a_n}$, а ряд $\sum{a_n}$ - \textbf{минорантой} ряда $\sum{b_n}$.
+\end{object}
+
+
+\begin{theorem}
+\label{aw}
+Пусть $s_n$ - последовательность частичных сумм ряда $\sum{a_n}$ с неотрицательными членами. $\sum{a_n}$ сходится $\Leftrightarrow$ последовательность $s_n$ ограничена.
+\end{theorem}
+$\blacktriangleleft$ ($\Rightarrow$) Вытекает из определения суммы ряда.
+\par ($\Leftarrow$) Поскольку ряд $\sum{a_n}$ с неотрицательными членами, то последовательность частичных сумм не убывает и неотрицательна. Последовательность $s_n$ монотонна $\Rightarrow$ можно применить теорему Вейерштрасса о сходимости  монотонной последовательности. Далее сходимость последовательности $s_n$, по определению суммы ряда, влечёт за собой сходимость ряда $\sum{a_n}$ $\blacktriangleright$
+
+
+\begin{theorem}(признак сравнения)
+Пусть $\sum{a_n}$ и $\sum{b_n}$ миноранта и мажоранта соответственно. Тогда справедливо:
+\begin{enumerate}
+\item Сходимость мажоранты ряда влечёт за собой сходимость миноранты ряда.
+\item Расходимость миноранты ряда влечёт за собой расходимость мажоранты ряда.
+\end{enumerate}
+\end{theorem}
+$\blacktriangleleft$ Обозначим частичные суммы рядов $\sum{a_n}$ и $\sum{b_n}$ как ${t_n}$ и ${s_n}$ соответственно.
+\begin{enumerate}
+\item $s_n$ ограничена в виду сходимости ряда $b_n\,\ a_n\le{b_n}\ \Rightarrow\ t_n\le{s_n}$. Но это означает, что $t_n$ ограничена и ряд $\sum{a_n}$ сходится.
+\item В этом случае $t_n\to{\infty}$ $\Rightarrow$ $s_n\to{\infty}$ и ряд $\sum{b_n}$ расходится. $\blacktriangleright$
+\end{enumerate}
+
+
+\textit{Замечание}. Также вместо условия в теореме 2 можно рассматривать вместо условия $a_n\le{b_n}$ условие $\frac{a_{n+1}}{a_n} \le \frac{b_{n+1}}{b_n}$.
+
+
+\begin{theorem}(признак Даламбера)
+Пусть для членов ряда $\sum{a_n}$ начиная с некоторого $n_0$ члена выполнены условия:
+\begin{enumerate}
+\item $a_n>0$;
+\item $D_n=\frac{a_{n+1}}{a_n}\le{q}$, где $0<q<1$.
+\end{enumerate}
+Тогда ряд $\sum{a_n}$ сходится. Если же имеем, что $\frac{a_{n+1}}{a_n}\ge1$, то ряд $\sum{a_n}$ расходится.
+\end{theorem}
+$\blacktriangleleft$Сравним ряд $\sum{a_n}$ со сходящимся рядом $\sum{b_n}$, где $b_n=q^n$. Тогда $\forall\ n>n_0$ имеем:
+$$\frac{a_{n+1}}{a_n}\le q=\frac{q^{n+1}}{q^n}=\frac{b_{n+1}}{b_n} $$
+Ряд $\sum{q^n}$ сходится при $q<1$ и расходится при $q\ge 1$. Следовательно, действительно имеем сходимость и расходимость из признака сравнения. $\blacktriangleright$
+
+
+\begin{theorem}(признак Коши)
+Пусть для членов ряда $\sum{a_n}$ начиная с некоторого $n_0$ члена выполнены условия:
+\begin{enumerate}
+\item $a_n>0$;
+\item $\sqrt[n]{a_n}\le q$, где $q<1$.
+\end{enumerate}
+Тогда ряд $\sum{a_n}$ сходится. Если же имеем, что $\sqrt[n]{a_n}\ge1$, то ряд $\sum{a_n}$ расходится.
+\end{theorem}
+$\blacktriangleleft$
+Имеем $\sqrt[n]{a_n}\le q \Rightarrow a_n\le q^n$. Опять же будем считать, что $b_n=q^n$ и по признаку сравнения имеем справедливость данного признака в обеих случаях.
+$\blacktriangleright$
+
+
+\begin{theorem}(признак Раабе)
+\begin{enumerate}
+\item Ряд $\sum{a_n}$ сходится, если $\forall\ n>n_0$ $\exists\ \alpha>1$, что имеет место неравенство
+$$\frac{a_{n+1}}{a_n}\le1-\frac{\alpha}{n}$$ 
+\item Этот же ряд расходится, если начиная с некоторого $n_1$ выполнено неравенство
+$$\frac{a_{n+1}}{a_n}\ge1-\frac{1}{n}$$
+\end{enumerate}
+\end{theorem}
+$\blacktriangleleft$ Проведём наше доказательство в два этапа:
+\begin{enumerate}
+\item Для доказательства опять же воспользуемся признаком сравнения. Сравним ряд $\sum{a_n}$ с рядом $\sum{b_n}$, где $b_n=\frac{1}{n^\beta}$ и $\beta=\frac{\alpha+1}{2}$ с условием $\alpha>\beta>1$. Этот ряд сходится. Тогда при $n\to\infty$ имеем
+$$\frac{b_{n+1}}{b_n}=\left(\frac{n+1}{n}\right)^{-\beta}=1-\frac{\beta}{n}+O\left(\frac{1}{n^2}\right)>1-\frac{\alpha}{n}\ge\frac{a_{n+1}}{a_n}$$
+Ряд $\sum{a_n}$ мажорируется сходящимся рядом $\Rightarrow$ он сходится.
+\item В этом случае перепишем неравенство и будем считать, что $n\ge2$
+$$\frac{a_{n+1}}{a_n}\ge1-\frac{1}{n}=\frac{n-1}{n}=\frac{\frac{1}{n}}{\frac{1}{n-1}}=\frac{b_{n+1}}{b_n},\ b_n=\frac{1}{n-1}$$
+Но ряд $\sum{b_n}$ - это гармонический ряд, который расходится, и по признаку сравнения имеем, что ряд $\sum{a_n}$ действительно расходится. $\blacktriangleright$
+\end{enumerate}
+
+
+\begin{theorem}(признак Куммера)
+Пусть \{$a_n$\} и \{$b_n$\} две числовые последовательности положительных чисел.
+\begin{enumerate}
+\item Если $\exists\ \alpha>0$ и номер $n_0$ такие, что $\forall\ n>n_0$ выполнено неравенство
+\begin{equation}
+\label{1}
+c_n-c_{n+1}\frac{a_{n+1}}{a_n}\ge\alpha
+\end{equation}
+то ряд $\sum{a_n}$ сходится.
+\item Если $\exists\ n_0$ такое, что $\forall\ n>n_0$ выполнено неравенство
+\begin{equation}
+\label{2}
+c_n-c_{n+1}\frac{a_{n+1}}{a_n}\le0
+\end{equation}
+и ряд $\sum{\frac{1}{c_n}}$ расходится, то ряд $\sum{a_n}$ тоже расходится.
+\end{enumerate}
+\end{theorem}
+$\blacktriangleleft$ Докажем каждый пункт признака куммера по отдельности.
+\begin{enumerate}
+\item Умножим неравенство~\ref{1} на $a_n$, имеем
+$${c_n}{a_n}-{c_{n+1}}{a_{n+1}}\ge\alpha{a_n}$$
+Далее просуммируем это неравенство по $n$ от $n=1,...,m$
+$$\sum_{n=1}^m{c_n{a_n}}-\sum_{n=1}^m{c_{n+1}{a_{n+1}}}\ge\alpha\left(a_1+...+a_m\right)$$
+Поскольку
+$$\sum_{n=1}^m{c_n{a_n}}-\sum_{n=1}^m{c_{n+1}{a_{n+1}}}={c_1}{a_1}+c_2{a_2}+...+c_m{a_m}-$$ $$-c_2{a_2}-...-c_{m+1}a_{m+1}=c_1{a_1}-c_{m+1}a_{m+1}$$
+получаем
+$$c_1{a_1}-c_{m+1}a_{m+1}\ge\alpha\left(a_1+...+a_m\right)$$
+откуда имеем
+$$s_m=a_1+...+a_m\le\frac{c_1{a_1}-c_{m+1}a_{m+1}}{\alpha}<\frac{c_1{a_1}}{\alpha}$$
+Поэтому согласно теореме \ref{aw} частичные суммы ряда $\sum{a_n}$ ограничены, что означает сходимость этого ряда.
+\item В этом случае неравенство~(\ref{2}) можно переписать неравенство в виде
+$$-c_{n+1}\frac{a_{n+1}}{a_n}\le-c_n;\ c_{n+1}\frac{a_{n+1}}{a_n}\ge c_n;\ \frac{a_{n+1}}{a_n}\ge\frac{\frac{1}{c_{n+1}}}{\frac{1}{c_n}}$$
+Но ряд $\sum{c_n}$ расходится, что по признаку сравнения влечёт расходимость мажорирующего ряда $\sum{a_n}$. $\blacktriangleright$
+\end{enumerate}
+
+
+\begin{theorem}(признак Бертрана)
+\begin{enumerate}
+\item Ряд $\sum{a_n}$ сходится, если $\exists\ \alpha>0$ и номер $n_0$ такие, что $\forall\ n>n_0$ выполнены неравенства
+\begin{equation}
+\label{3}
+\frac{a_{n+1}}{a_n}\le1-\frac{1}{n}-\frac{1+\alpha}{n\ln{n}}
+\end{equation} 
+\item Данный ряд расходится, если при всех достаточно больших $n$ имеет место формула
+\begin{equation}
+\label{4}
+\frac{a_{n+1}}{a_n}\ge1-\frac{1}{n}-\frac{1}{n\ln{n}}
+\end{equation}
+\end{enumerate}
+\end{theorem}
+$\blacktriangleleft$ Эта теорема по сути является следствием признака Куммера.
+\begin{enumerate}
+\item В качестве $c_n$ в признаке Куммера положим $c_n=(n-1)\ln{n-1}$. Тогда формула (\ref{3}) записывается в виде
+$$(n-1)\ln{n-1}-n\ln{n}\frac{a_{n+1}}{a_n}\ge\alpha$$
+$$-n\ln{n}\frac{a_{n+1}}{a_n}\ge\alpha-(n-1)\ln{n-1}$$
+Преобразуем правую часть полученного неравенства.
+\vskip 5mm
+$\frac{a_{n+1}}{a_n}\le\frac{-\alpha}{n\ln{n}}+\frac{(n-1)\ln{(n-1)}}{n\ln{n}}=\frac{-\alpha}{n\ln{n}}+\frac{(n-1)\ln{(n-1)}}{n\ln{n}}+\frac{n-1}{n}-\frac{n-1}{n}=\frac{-\alpha}{n\ln{n}}+\frac{(n-1)\ln{(n-1)}}{n\ln{n}}+\frac{n-1}{n}-\frac{\left(n-1)\right)\ln{n}}{n\ln{n}}=1-\frac{1}{n}+\frac{\left(n-1\right)\left(\ln{(n-1)}+\ln{n}\right)}{n\ln{n}}-\frac{\alpha}{n\ln{n}}=1-\frac{1}{n}-\frac{\alpha}{n\ln{n}}+\frac{\left(n-1\right)\ln{\frac{n-1}{n}}}{n\ln{n}}$
+\vskip 5mm
+Поскольку $(n-1){\ln{(1-\frac{1}{n})}=\ln{(1-\frac{1}{n})}}^{n-1}>-1$ предыдущее неравенство вытикает из следующего
+$$\frac{a_{n+1}}{a_n}\le1-\frac{1}{n}-\frac{1+\alpha}{n\ln{n}}\le1-\frac{1}{n}-\frac{(n-1)\ln{(1-\frac{1}{n})}}{n\ln{n}}-\frac{\alpha}{n\ln{n}}$$
+то есть условие сходимости в признаке Бертрана обеспечивает справедливость условия сходимости в признаке Куммера.
+\item Положим в признаке Куммера $c_n=(n-2)\ln{n-1}$. Тогда имеем
+$$(n-2)\ln{n}\frac{a_{n+1}}{a_n}-(n-2)\ln{(n-1)}\ge0$$
+Откуда получаем
+$$(\frac{a_{n+1}}{a_n}\ge\frac{(n-2)ln{(n-1)}}{(n-1)\ln{n}}$$
+Теперь оценим выличину данную в~(\ref{4})
+$$1-\frac{1}{n}-\frac{1}{n\ln{n}}\ge\left(1-\frac{1}{n-1}\right)\left(1-\frac{1}{n\ln{n}}\right)\ge\left(1-\frac{1}{n-1}\right)\left(1+\frac{ln{\left(1+\frac{1}{n}\right)}}{\ln{n}}\right)$$
+Проведя соответствующие вычисления легко проверить
+$$\left(1-\frac{1}{n-1}\right)\left(1+\frac{ln{\left(1+\frac{1}{n}\right)}}{\ln{n}}\right)=\frac{(n-2)ln{(n-1)}}{(n-1)\ln{n}}$$
+Что полностью соответствует правильности признака Бертрана для расходимости ряда.$\blacktriangleright$
+\end{enumerate}
+
+
+\begin{theorem}(интегральный признак Коши-Маклорена)
+Пусть функция $f(x)$ определена на промежутке $[1;+\infty)$ и убывает на нём. Тогда:
+\begin{enumerate}
+\item Если $0\le{a_n}\le{f(n)}\ \forall\ n>n_0$ и несобственный интеграл $\int_1^{\infty}f(x)dx$ сходится, то ряд $\sum{a_n}$ сходится.
+\item Если $0\le{f(n)}\le{a_n}\ \forall\ n>n_0$ и несобственный интеграл $\int_1^{\infty}f(x)\dx$ расходится, то и ряд $\sum{a_n}$ расходится.
+\end{enumerate}
+\end{theorem}
+$\blacktriangleleft$ Без ограничения общности будем считать, что $n_0=1$. Поскольку $f(x)$ монотонно убывает $\forall\ k$ и $k\le{x}\le{k+1}$ имеем
+$$f(k)\ge{f(x)}\ge{f(k+1)}$$
+Интегрируем это неравенство по отрезку $[k,k+1]$ получаем
+$$f(k)=\int_k^{k+1}f(k)\dx\ge\int_k^{k+1}f(x)\dx\ge\int_k^{k+1}f(k+1)\dx=f(k+1)$$
+Суммируем эти неравенства по $k$ от 1 до $n-1$. Получим:
+$$s_{n-1}=\sum_{k=1}^{n-1}f(k)\ge\int_1^n{f(x)}\dx\sum_1^{n-1}f(k+1)=\left(\sum_{k=1}^n{f(k)}\right)-f(1)=s_n-f(1)$$
+Далее рассмотрим отдельно 2 случая:
+\begin{enumerate}
+\item Несобственный интеграл $I=\int_1^{\infty}f(x)dx$ и $\forall\ n>2$ для частичных сумм $s_n$ ряда $f(n)$ имеет место единообразная оценка вида $s_n\le{I}+f(1)$, что по теореме 1 доказывает справедливость неравенства.
+\item Здесь же $s_n\ge\int_1^n{f(x)}\dx$, то $s_n$ неограничена, и ряд расходится.$\blacktriangleright$
+\end{enumerate}
+

@@ -1,0 +1,38 @@
+\documentclass[12pt,titlepage]{report}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{textcomp}
+\usepackage[utf8]{inputenc}
+%\usepackage[koi8-r]{inputenc}
+\usepackage[dvips]{graphics,epsfig}
+%\usepackage{weird,queer,latexsym}
+\usepackage{latexsym} 
+\pagestyle{empty}
+\frenchspacing
+\textwidth=16cm
+\textheight=25cm
+\topmargin=-0.5in
+\oddsidemargin=0mm
+\newcommand\ds{\displaystyle}
+\newtheorem{object}{Определение}
+\newtheorem{approval}{Утверждение}
+\newtheorem{theorem}{Теорема}
+\newtheorem{example}{Пример}
+\newtheorem{lemma}{Лемма}
+\newtheorem{task}{Задача}
+\newtheorem{sledstvie}{Следствие}
+\def\R{\mathbb R}
+\def\N{\mathbb N}
+\def\dx{{\rm d}x}
+\def\dxy{{\rm d}xy}
+
+\begin{document}
+\pagestyle{plain}
+\title{\textbf{ЛЕКЦИИ \\ПО МАТЕМАТИЧЕСКОМУ \\АНАЛИЗУ}}
+\author{\textbf{Архипов Г.И., Садовничий В.А., Чубариков В.Н.}}
+\date{февраль, 2012}
+\input{Ema.tex}
+\tableofcontents
+\end{document}

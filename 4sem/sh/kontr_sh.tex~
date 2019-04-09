@@ -1,0 +1,9 @@
+\documentclass[12pt,english,russian]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\frenchspacing
+\pagestyle{empty}
+\input set.txt
+\begin{document}
+\input kontr_sh.txt
+\end{document}

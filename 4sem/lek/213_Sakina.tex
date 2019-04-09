@@ -1,0 +1,176 @@
+\setcounter{object}{0}
+\setcounter{approval}{0}
+\setcounter{theorem}{0}
+\setcounter{example}{0}
+
+
+\chapter{Замечательные пределы}
+\centerline{ \bf Автор: Гусейн-заде Сакина } \vskip 1cm
+
+\begin{approval}
+\slshape{Имеют место соотношения:}
+
+\slshape{a)}
+$\lim\limits_{x\to\infty} (1+\frac{1}{x})^{x}=e;$
+
+
+\slshape{б)}
+$\lim\limits_{x\to\ 0}(1+x)^{1/x} =e;$
+
+
+\slshape{в)}
+$\lim\limits_{x\to\ 0}\frac{\ln(1+x)}{x} =1;$
+
+
+\slshape{г)}
+$\lim\limits_{x\to\ 0}\frac{e^{x}-1}{x} =1;$
+
+\end{approval}
+
+$\blacktriangleleft$
+ \upshape{a) Рассмотрим сначала случай $\it x  \rightarrow  +\infty.$}  
+  \upshape{ В силу свойства монотонности показательной функции справедливы неравенства}
+ 
+ \begin{center}
+ $
+ \left(1+\dfrac{1}{[x]+1}\right) ^{[x]}<\left(1+\dfrac{1}{x}\right) ^{x}<\left(1+\dfrac{1}{[x]}\right) ^{[x]+1}
+ $.
+ \end{center}
+Но мы знаем, что
+ 
+  \begin{center}
+  $
+\lim\limits_{n\to\infty}\left(1+\dfrac{1}{n}\right) ^{n}=e.
+  $
+  \end{center}
+Отсюда  
+   \begin{center}
+   $
+ \lim\limits_{n\to\infty}\left(1+\dfrac{1}{n+1}\right)^{n}=e, $   $\lim\limits_{n\to\infty}\left(1+\dfrac{1}{n}\right)^{n+1}=e.
+   $
+   \end{center}
+т.е. справедливы утверждения
+   \begin{center}
+   $
+\forall\: \: \varepsilon\: >\: 0   \:\:  \exists \:\:  N_1(\varepsilon ):\forall\: \:  n>N_1 \: \: \Rightarrow \: \:  \left | \left(1+\dfrac{1}{n+1}\right)^{n}-e \right |<\varepsilon ;
+   $
+   
+   $
+\:\:\:\:\:\:\:\:\:\:\:\:\:\:  \exists \:\:  N_2(\varepsilon ):\forall\: \:  n>N_2 \: \: \Rightarrow \: \:  \left | \left(1+\dfrac{1}{n}\right)^{n+1}-e \right |<\varepsilon.
+   $
+\end{center}
+
+Тогда при $n>\:\:max(N_1, N_2)$ имеем
+
+\begin{center}
+$e-\varepsilon <\left(1+\dfrac{1}{n+1} \right )^{n}<e+\varepsilon;$
+$e-\varepsilon <\left(1+\dfrac{1}{n} \right )^{n+1}<e+\varepsilon.$
+\end{center}   
+Если $x>1+max(N_1, N_2)=N$, то $[x]>max(N_1, N_2)=N  -  1$.
+ Следовательно, при $x>N$ справедливы неравенства
+ 
+\begin{center}
+$
+e-\varepsilon <\left(1+\dfrac{1}{[x]+1} \right )^{[x]}\left(1+\dfrac{1}{x} \right )^{x}<\left(1+\dfrac{1}{[x]} \right )^{[x]+1}<e+\varepsilon.
+$
+\end{center} 
+Таким образом, получим
+\begin{center}
+ $
+\forall\: \: \varepsilon\: >\: 0   \:\:  \exists \:\:  N(\varepsilon ):\forall\: \:  x>N \: \: \Rightarrow \: \:  \left | \left(1+\dfrac{1}{x}\right)^{x}-e \right |<\varepsilon ;
+   $
+\end{center} 
+Это значит, что $\left(1+\dfrac{1}{x}\right)^{x} \rightarrow  +\infty $ при $ x \rightarrow  +\infty $. 
+
+\upshape{Рассмотрим теперь случай $x \rightarrow -\infty $. Положим $y=-x$. Тогд,а используя теорему 4 \S\:6 гл. III о пределе сложно функции, будем иметь}
+\begin{center}
+$
+e= \lim\limits_{y\to+\infty} \left(1+\dfrac{1}{y-1}\right)^{y} = \lim\limits_{y\to+\infty} \left(\dfrac{y}{y-1}\right)^{y} = \lim\limits_{y\to+\infty} \left(1-\dfrac{1}{y}\right)^{-y}= \lim\limits_{y\to-\infty} \left(1+\dfrac{1}{x}\right)^{x}.
+$
+\end{center}
+Соединяя вместе случаи $x \rightarrow +\infty $ и $x \rightarrow -\infty $, приходим к соотношению 
+\begin{center}
+$
+ \lim\limits_{x\to\infty} \left(1+\dfrac{1}{x}\right)^{x} = e.
+$
+\end{center}
+Утверждение а) доказано.
+
+\upshape{б) Для доказательства соотношения $\lim\limits_{x\to\ 0} (1+x)^{1/x} = e$ воспользуемся той же теоремой 4 \S\:6 гл. III. Полагая $x=1/y$, получим}
+\begin{center}
+$
+ e=\lim\limits_{y\to\infty} \left(1+\dfrac{1}{y}\right)^{y} =  \lim\limits_{x\to\infty} \left(1+x\right)^{1/x}.
+$
+\end{center}
+
+\upshape{в) Так как}
+\begin{center}
+$(1+x)^{1/x}=e^{\frac{ln(1+x)}{x}}\rightarrow e$ при $x\rightarrow 0,$
+\end{center}
+то из непрерывности и монотонности функции $y=e^{x}$ следует, что
+
+\begin{center}
+$ e=\lim\limits_{x\to\ 0} \dfrac{\ln(1+x)}{x} = 1.$
+\end{center}
+
+
+\upshape{г) Вновь воспользуемся теоремой о пределе сложной функци, полагая}
+\begin{center}
+$ g(x)=e^{x}-1 \rightarrow 0 $ при $x \rightarrow 0,$
+
+$ f(y)=\dfrac{\ln(1+y)}{y} \rightarrow 1 $ при $y \rightarrow 0,$
+\end{center}
+и, кроме того, $f(0)=1.$
+
+\upshape{Тогда имеем $f(g(x))=\frac{x}{e^{x}-1} \rightarrow 1$ при $x \rightarrow 0$. Отсюда следует утверждение г).}
+
+\upshape{Утверждение 1 полностью доказано.}  $\blacktriangleright$
+
+\begin{approval}
+$ \lim\limits_{x\to\ 0} \dfrac{\sin(x)}{x} = 1.$
+\end{approval}
+$\blacktriangleleft$ При $0<x<\pi /2$ рассмотрим сектор единичного круга, отвечающего душе длины $х$, и два треугольника, один из которых вписан в сектор, в второй, прямоугольный, содержит его, имея с ним общий угол и сторону на оси абсцисс. Сравнивая площади этих фигур, имеем
+\begin{center}
+$\dfrac {\sin{x}}{2}<\dfrac {x}{2}<\dfrac {\tg{x}}{2}$
+\end{center}
+Отсюда получим
+\begin{center}
+$\cos{x}<\dfrac {\sin{x}}{2}<1.$
+\end{center}
+
+\upshape{Последние неравенства связывают четные функции, поэтому они имеют место при $0<|x|<\pi/2$. Так как cos $x$ - непрерывная функция, то по теореме о переходе к пределу в неравенствах имеем}
+
+\begin{center}
+$\lim\limits_{x\to\ 0} \dfrac{\sin(x)}{x} = 1.$
+\end{center}
+Доказательство закончено.  $\blacktriangleright$
+
+\bf{Примеры вычисления пределов.}
+
+\bf{1.} \rm $\lim\limits_{x\to\ 0} \frac{(1+x)^{\alpha}-1}{x} = \alpha.$
+
+\begin{center}
+$ \dfrac{(1+x)^{\alpha}-1}{x}  =  \dfrac{e^{\alpha\ln(1+x)}-1}{x} = \dfrac{e^{\alpha x+o(x)}-1}{x}=$
+
+ $= \dfrac{1+\alpha x + o(x)-1}{x} = \alpha+o(1) \rightarrow \alpha$ при $x \rightarrow 0.$
+
+\end{center}
+Этот прием называется заменой бесконечно малой функции на эквивалентную ей.
+
+
+\bf{2.} \rm $\lim\limits_{x\to\ 0} \frac{1-\cos x}{x^2} = \frac{1}{2}.$
+
+\begin{center}
+$ \dfrac{1-\cos x}{x^2}  =  \dfrac{2\sin^2 \frac{x}{2}}{x^2} = \dfrac{2(\frac{x}{2}+0(x^2))^2}{x^2}= = \dfrac{\frac{x^2}{2}+o(x^2)}{x^2} = \dfrac{1}{2}+o(1). $
+\end{center}
+Таким образом:
+
+1) $(1+x)^\alpha=1+\alpha x + o(x)$ при $x \rightarrow  0;$
+
+1) $\cos x=1- \frac{x^2}{2} + o(x^2)$ при $x \rightarrow  0;$
+
+1) $\lim\limits_{n\to+\infty} \left(1+\frac{x}{n}\right)^{n} = e^{x}.$ Положим $x_n=\frac{x}{n} \rightarrow 0$ при $n \rightarrow  \infty.$ Тогда по теореме о пределе сложной функции имеем
+\begin{center}
+$ \lim\limits_{n\to\infty} \left(1+\frac{x}{n}\right)^{n} = \lim\limits_{n\to\infty} \left((1+x_n)^{1/x_n}\right)^{x} = e^{x\lim_{n\to\infty} \dfrac{\ln(1+x_n)}{x_n}}= e^{x}  $
+\end{center}
+

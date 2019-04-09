@@ -1,0 +1,41 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <pthread.h>
+#include <errno.h>
+
+void *thread_func(void *arg)
+{
+ int i;
+ int loc_id=*(int *)arg;
+ for (i=0;i<4;i++){printf("Thread %i is running\n",loc_id); sleep(1);}
+}
+
+int main(void)
+{
+ int id1,id2,id3,result;
+ pthread_t thread1,thread2,thread3;
+ id1=1;
+ result=pthread_create(&thread1, NULL, thread_func,&id1);
+ if(result!=0){perror("Creating the 1 thread"); return EXIT_FAILURE;}
+ else printf("1 thread creating\n");
+ id2=2;
+ result=pthread_create(&thread2, NULL, thread_func,&id2);
+ if(result!=0){perror("Creating the 2 thread"); return EXIT_FAILURE;}
+ else printf("2 thread creating\n");
+ id3=3;
+ result=pthread_create(&thread3, NULL, thread_func,&id3);
+ if(result!=0){perror("Creating the 3 thread"); return EXIT_FAILURE;}
+ else printf("3 thread creating\n");
+
+ result=pthread_join(thread1,NULL);
+ if(result!=0){perror("Joining the 1 thread"); return EXIT_FAILURE;}
+ else printf("1 thread joining\n");
+ result=pthread_join(thread2,NULL);
+ if(result!=0){perror("Joining the 2 thread"); return EXIT_FAILURE;}
+ else printf("2 thread joining\n");
+ result=pthread_join(thread3,NULL);
+ if(result!=0){perror("Joining the 3 thread"); return EXIT_FAILURE;}
+ else printf("3 thread joining\n");
+ printf("Done\n");
+ return EXIT_SUCCESS;
+}

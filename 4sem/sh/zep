@@ -1,0 +1,28 @@
+#! /bin/sh
+
+mkdir bezraswir
+for d in `find . -name "*"`
+do
+if [ -f $d ];
+then
+mv $d ./bezraswir
+fi
+done
+
+for x in `find . -name "*.*"`
+do
+if [ -f $x ];
+then
+y=`echo $x|sed 's/.*\.\(.*\)\$/\1/'`
+if [ ! -d $y ];
+then
+mkdir $y
+mv $x ./$y
+else
+mv $x ./$y
+fi
+fi
+
+done
+
+

@@ -1,0 +1,4 @@
+SOURCE_COUNT=13
+DEST_COUNT=15
+[ "$DEST_COUNT" -gt "$SOURCE_COUNT" ]
+echo $?

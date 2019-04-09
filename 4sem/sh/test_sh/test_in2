@@ -1,0 +1,7 @@
+#!/bin/sh
+# test_in2
+for files in `ls *.txt`
+do
+sed "/^$/d" $files>$files.log
+mv $files.log $files
+done

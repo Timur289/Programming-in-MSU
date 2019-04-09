@@ -1,0 +1,11 @@
+\documentclass[12pt,english,russian]{article}
+\usepackage[cp866]{inputenc}
+\usepackage{babel}
+\frenchspacing
+\pagestyle{empty}
+\input set.txt
+\begin{document}
+\input sem4_pr.txt
+\end{document}
+
+=========================================================

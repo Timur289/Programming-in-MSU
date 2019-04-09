@@ -1,0 +1,256 @@
+\setcounter{object}{0}
+\setcounter{approval}{0}
+\setcounter{theorem}{0}
+\setcounter{example}{0}
+
+\chapter{Бесконечные произведения}
+\centerline{ \bf Автор: Мустафазаде Аруз} \vskip 1cm
+\begin{object}
+\slshape{Рассмотрим числовую последовательность положительных чисел \{$b_n$\}. Формальное бесконечное произведение всех её членов}
+\begin{center}
+$b_{1}\cdot b_{2} \cdot b_{3} \cdots b_{n}  \cdots $.
+\end{center}
+\slshape{называется}\/
+\upshape\mdseries\rmfamily{\bfseries{бесконечным числовым произведением}}, \slshape{или} 
+\upshape\mdseries\rmfamily{\bfseries{бесконечным произведением}},
+\slshape{или просто} 
+\upshape\mdseries\rmfamily\normalsize{\bfseries{произведением}}.
+
+Бесконечное произведение обозначается так:
+\begin{center}
+$b_{1} \cdot b_{2} \cdots = \prod\limits_{n=1}^{\infty}b_{n} = \prod\limits b_{n}$.
+\end{center}
+\end{object}
+
+\begin{object}
+\slshape{Конечное произведение} $\prod\nolimits_{n}$ \slshape{вида} $\prod\nolimits_{n} = b_{1} \cdots b_{n}$
+\slshape{называется} \upshape\mdseries\rmfamily{\bfseries{n-м частичным произведением}}.
+\end{object}
+
+\begin{object}
+\slshape{Если последовательность} $\prod\nolimits_{n}$ \slshape{сходится к числу} $\prod \ne{0}$
+(\slshape{т.е.} $\prod>0$), \slshape{то бесконечное произведение называется \upshape\mdseries\rmfamily\textbf{сходящимся} (к числу $\prod$)}.
+\slshape{Если $\prod = 0$, то это бесконечное произведение называется \upshape\mdseries\rmfamily\textbf{расходящимся к нулю}, а если 
+$\prod\to{+\infty}$, то оно называется \textbf{расходящимся к бесконечности}. Если предела нет вообще, то оно называется просто \upshape\mdseries\rmfamily\textbf{расходящимся}}.
+\end{object}
+
+
+\begin{approval}
+(необходимый признак сходимости бесконечногo произведения).
+\slshape{Если $\prod b_{n}\mbox{ сходится, то }b_{n}\to 1\mbox{ при }n\to \infty$}.
+\end{approval}
+$\blacktriangleleft$ \upshape\mdseries\rmfamily{Если при} $\prod\nolimits_{n}\to \prod \ne{0}$, 
+\upshape\mdseries\rmfamily{то}
+\begin{center}
+$b_{n} = \dfrac{\prod\nolimits_{n}}{\prod\nolimits_{n-1}}\to \dfrac{\prod}{\prod} = 1$ \upshape\mdseries\rmfamily{при} $n\to \infty$ $\blacktriangleright$.
+\end{center}
+\upshape\mdseries\rmfamily
+
+
+\begin{approval}
+\slshape{Сходимость бесконечного произведения $\prod b_{n}$ влечёт за собой сходимость ряда $\ln{b_{n}}$, и 
+наоборот, причём}
+\begin{center}
+$\ln{\prod\limits_{n=1}^{\infty}b_{n} = \sum{\ln{b_{n}}}}$.
+\end{center}
+$\blacktriangleleft$
+\upshape\mdseries\rmfamily{Имеем $\ln{\prod\nolimits_{n}} = \sum\limits_{k=1}^{n}\ln{b_{k}}$. Функция $y = \ln{x}$
+устанавливает непрерывное взаимно однозначное соответствие между лучом $(0, +\infty)$ и всей вещественной осью
+$\mathbb R = (-\infty, +\infty)$. Поэтому в силу положительности $b_{n}$ для всех $n\in \mathbb N$ возможен переход к пределу
+в одной части равенства при сходимости другой его части, 
+и при этом $\ln{\prod} = \sum\nolimits_{k=1}^{\infty}\ln{b_{k}}$. Сходимость к нулю левой части равенства 
+эквивалентна сходимости к $-\infty$ правой его части. $\blacktriangleright$}.
+\end{approval}
+
+\textit{Замечание}. Очевидно, что отбрасывание или добавление любого конечного числа ненулевых сомножителей не влияет на сходимость бесконечного произведения. Поэтому можно считать, что конечное число членов этого произведения могут быть и отрицательными.
+
+\begin{object}
+\slshape{Бесконечное произведение $\prod\limits_{k=1}^{\infty}b_{k}$ называется} 
+\upshape\mdseries\rmfamily\textbf{абсолютно сходящимся},
+\slshape{если абсолютно сходится ряд $\sum{\ln{b_{k}}}$. Это означает сходимость ряда \\$\sum|\ln{b_n}|$.
+Сходящееся бесконечное произведение $\prod\limits_{n=1}^{\infty}b_{n}$, не являющееся абсолютно сходящимся,
+называется \upshape\mdseries\rmfamily\textbf{условно сходящимя}}.
+
+\upshape\mdseries\rmfamily{Из предыдущего утверждения и теоремы о сходимости 
+абсолютно сходящегося ряда непосредственно вытекает следующая
+теорема}.
+\end{object}
+
+\begin{theorem}
+\slshape{Абсолютно сходящееся произведение всегда сходится в обычном смысле}.
+
+\upshape\mdseries\rmfamily{Поскольку мы считаем, что $b_{n}>0$ при всех n, числа $b_{n}$ 
+обычно представляют в виде $b_n = 1 + a_n$, где $a_n> -1$. Тогда имеем} 
+\begin{center}
+$\prod\limits_{n=1}^{\infty}b_{n} = \prod\limits_{n=1}^{\infty}(1 + a_{n})$.
+\end{center}
+\end{theorem}
+
+\begin{theorem}
+\label{se}
+(критерий абсолютной сходимости бесконечного произведения). \slshape{Бесконечное произведение 
+$\prod\limits_{n=1}^{\infty}(1 + a_{n})$ абсолютно сходится тогда и только тогда, когда сходится ряд $\sum|a_n|$.}
+\end{theorem}
+
+$\blacktriangleleft$ \upshape{Так как $1 + a_n\to 1\mbox{ при }n\to\infty$, то $a_n\to 0$. Однако}
+\begin{center}
+$\dfrac{\ln(1 + x)}{x}\to 1\mbox{ при }x\to 0$,
+\end{center}
+поэтому при $n\to\infty$ имеем
+\begin{center}
+$\dfrac{\ln(1 + a_n)}{a_n}\to 1$, $\dfrac{|\ln(1 + a_n)|}{|a_n|}\to 1$.
+\end{center}
+Следовательно, при достаточно большом $n>n_0$ выполнены неравенства 
+\begin{center}
+$\dfrac12<\dfrac{|\ln(1 + a_n)|}{|a_n|}<\dfrac23$.
+\end{center}
+Если, например, сходится ряд $\sum|\ln(1 + a_n)|$, то он будет мажорантой для ряда $\sum|a_n|/2$, а если сходится ряд 
+$\sum|a_n|$, то он является мажорантой для ряда $\sum 2|\ln(1 + a_n)|/3$. Но это означает, что ряды $\sum|a_n|$ и 
+$\sum|\ln(1 + a_n)|$ сходятся и расходятся одновременно.$\blacktriangleright$
+
+
+Следствием из этой теоремы является следующее утверждение.
+
+\begin{approval}
+\slshape{Если при достаточно большом $n>n_0$ все числа $a_n$ имеют один и тот же знак, то сходимость произведения
+$\prod(1 + a_n)$ эквивалентна сходимости ряда $\sum a_n$}.
+\end{approval}
+$\blacktriangleleft$
+\upshape\mdseries\rmfamily{Поскольку и сходимость ряда, и сходимость произведения влечёт за собой соотношения
+\begin{center}
+$a_n\to 0$, $\ln(1 + a_n)\to 0$, $\dfrac{\ln(1 + a_n)}{a_n}\to 1\mbox{ при }n\to\infty$, 
+\end{center}
+отсюда следует, что при достаточно большом $n>n_0$ величина $\ln(1 + a_n)$ сохраняет знак вместе с $a_n$. Это означает,
+что сходимость рядов $\sum a_n$, $\sum\ln(1 + a_n)$ и произведения $\prod(1 + a_n)$ эквивалентна их абсолютной сходимости.
+Теперь, применяя Теорему \ref{se}, получаем требуемое утверждение.} 
+$\blacktriangleright$
+
+Рассмотрим некоторые примеры бесконечных произведений.
+
+
+\begin{example}
+Гамма-функция Эйлера $\Gamma(s)$. По определению имеем
+\begin{center}
+$\Gamma(s) = \dfrac{1}{s e^{\gamma s}}\prod\limits_{n=1}^{\infty}\left(1 + \dfrac sn\right)^{-1}e^{s/n}$,
+\end{center}
+где $s\ne 0, -1, -2, \ldots$ --- любое вещественное число 
+(или даже комплексное число, если определение 3
+распространить на комплексные числа), $\gamma$ --- постоянная Эйлера,
+\begin{center}
+$\gamma = \lim\limits_{n\to\infty}(1 + \dfrac 12 + \cdots + \dfrac 1n - \ln n) = 0,577 \ldots$ .
+\end{center}
+
+Бесконечное произведение, через которое определяется гамма-функция Эйлера, сходится абсолютно при любом 
+$s\ne 0, -1, -2, \ldots$, так как при достаточно большом $n>n_0$ в силу формулы Тейлора с остаточным членом в форме
+Лагранжа справедлива оценка
+\begin{center}
+$|\ln b_n| = \left|\ln\left(\left(1 + \dfrac sn\right)^{-1}e^{s/n}\right)\right|$ = 
+$\left|\dfrac sn - \ln\left(1 + \dfrac sn\right)\right| < \dfrac{s^2}{n^2}$,
+\end{center}
+и сходящийся ряд $\sum{s^2}/{n^2}$ является мажорантой для ряда $\sum|\ln b_n|$.
+\end{example}
+
+\begin{approval}
+(Формула Эйлера) \slshape{Имеет место следующая формула:}
+\begin{center}
+$\Gamma(s) = s^{-1}\prod\nolimits_{n=1}^\infty(1 + 1/n)^s(1 + s/n)^{-1}$.
+\end{center}
+\end{approval}
+$\blacktriangleleft$ \upshape\mdseries\rmfamily{Уже доказано, что бесконечное произведение в определении гамма-функции сходится абсолютно в любой точке своей области определения. Поэтому из определения гамма-функции имеем}
+\begin{center}
+$\Gamma(s) = s^{-1}\lim\limits_{m\to\infty}e^{-s(1 + 1/2 + \cdots + 1/m -\ln m)}\lim\limits_{m\to\infty}$
+$\prod\limits_{n=1}^{\infty}\left(1 + \dfrac sn\right)^{-1}e^{s/n} =$\\
+$ = s^{-1}\lim\limits_{m\to\infty}m^s$
+$\prod\limits_{n=1}^{m}\left(1 + \dfrac sn\right)^{-1} = $
+$s^{-1}\lim\limits_{m\to\infty}\prod\limits_{n=1}^{m-1}\left(1 + \dfrac{1}{n}\right)^{s}$
+$\prod\limits_{n=1}^{m}\left(1 + \dfrac{s}{n}\right)^{-1} =$\\
+$=s^{-1}\lim\limits_{m\to\infty}\left(\prod\limits_{n=1}^{m}\left(1 + \dfrac 1n\right)^{s}\left(1 + \dfrac sn\right)^{-1}\right)$
+$\left(1 + \dfrac 1m\right)^{-s}=$
+$s^{-1}\prod\limits_{n=1}^{\infty}\left(1 + \dfrac 1n\right)^s\left(1 + \dfrac sn\right)^{-1}$,
+\end{center}
+что и требовалось доказать. $\blacktriangleright$
+
+
+\begin{approval}
+(Функциональное уравнение для гамма-функции Эйлера $\Gamma(s)$). \slshape{Справедлива следующая формула:}
+\begin{center}
+$\Gamma(s + 1) = s\Gamma(s)$,  $\Gamma(1) = 1$.
+\end{center}
+\end{approval}
+
+$\blacktriangleleft$\upshape\mdseries\rmfamily{По формуле Эйлера имеем, что $\Gamma(1) = 1$, а также}
+\begin{center}
+$\dfrac{\Gamma(s + 1)}{\Gamma(s)} = \dfrac{s}{s + 1}\prod\limits_{n=1}^{\infty}$
+$\dfrac{(1 + 1/n)^{s + 1}}{(1 + 1/n)^{s}}\dfrac{1 + s/n}{1 + (s + 1)/n}=$
+$\dfrac{s}{s + 1}\prod\limits_{n=1}^{\infty}\dfrac{n + 1}{n}\dfrac{n + s}{n + s + 1}=$\\
+$=\dfrac{s}{s + 1}\lim\limits_{m\to\infty}\prod\limits_{n=1}^{m}$
+$\dfrac{2\cdot 3\ldots(m + 1)}{1\cdot 2\ldots m}\dfrac{(1 + s)\ldots(1 + m)}{(2 + s)\ldots(m + 1 + s)} =$
+
+$=\dfrac{s}{s + 1}\lim\limits_{m\to\infty}(s + 1)\dfrac{m + 1}{m + 1 + s} = s$.
+\end{center}
+Отсюда следует, что $\Gamma(s + 1) = s\Gamma(s)$. $\blacktriangleright$
+
+Из утверждения 5 непосредственно получаем такое следствие.
+
+
+\textbf{Следствие}. \slshape{Для натуральных чисел $n$ имеем $\Gamma(n + 1) = n!$ }
+\upshape\mdseries\rmfamily{Далее будет доказано, что при $s>0$ имеет место формула интегрального представления 
+для $\Gamma(s)$ вида}
+\begin{center}
+$\Gamma(s) = \int\limits_{0}^{\infty} x^{s - 1} e^{-x}dx$.
+\end{center} 
+
+\begin{example}
+При всех вещественных $x$ следующее бесконечное произведение сходится:
+\begin{center}
+$\prod\limits_{n=1}^{\infty}\left(1 - \dfrac{x^2}{\pi^2 n^2}\right) = \dfrac{\sin x}{x}$.
+\end{center}
+\end{example}
+
+Это равенство мы докажем позднее, а сходимость вытекает из утверждения 3.
+
+\begin{example}
+Бесконечное произведение для дзета-функции Римана. \\ При $s>1$ фукция $\zeta(s)$ определена сходящимся рядом 
+$\zeta(s) = \sum\limits_{n=1}^{\infty}\dfrac{1}{n^s}$. Пусть при $p_1 = 2, p_2 = 3, p_3 = 5, \ldots$ --- последовательно
+занумерованные простые числа натурального ряда.
+\end{example}
+
+\begin{approval}
+(формула Эйлера бесконечного произведения дзета-функции Римана $\zeta(s)$). \slshape{При $s>1$ имеет место
+следующая формула}:
+\begin{center}
+$\zeta(s) = \sum\limits_{n=1}^{\infty}\dfrac{1}{n^s} =$ 
+$\prod\limits_{k=1}^{\infty}\left(1 - \dfrac{1}{p_k^s}\right)^{-1}$.
+\end{center}
+\end{approval}
+
+$\blacktriangleleft$ \upshape\mdseries\rmfamily {Имеем } 
+\begin{center}
+$\prod_k = \prod\limits_{m=1}^{k}\left(1 - \dfrac{1}{p_m^s}\right)^{-1} =$ 
+$\prod\limits_{m=1}^{k}\left(1 + \dfrac{1}{p_m^s} + \dfrac{1}{p_m^2s} + \ldots\right)$.
+\end{center}
+Раскрывая скобки, согласно неравенству $p_k>k$ , справедливому при $k\in\mathbb N$, получим
+\begin{center}
+$\prod_k>\sum\limits_{n=1}^{k}\dfrac{1}{n^s}$.
+\end{center}
+С другой стороны, очевидно, что 
+\begin{center}
+$\prod_k = \sum\limits_{m=1}^{\infty}\dfrac{1}{a_m^s}$,
+\end{center}
+где $a_m -$ некоторая подпоследовательнось натуральных чисел, которая не содержит повторений в силу однозначности 
+разложения натурального числа на простые сомножители. Отсюда имеем неравенства
+\begin{center}
+$\zeta(s) = \sum\limits_{n=1}^{\infty}\dfrac{1}{n^s}>\sum\limits_{m=1}^{\infty}\dfrac{1}{a_m^s}>\prod_k = $
+$\sum\limits_{n=1}^{k}\dfrac{1}{n^s}$.
+\end{center}
+Переходя здесь к пределу при $k\to\infty$, получаем требуемый результат.$\blacktriangleright$ 
+
+При $s = 1$ справедлива оценка
+\begin{center}
+$\prod_k = \prod\limits_{m=1}^{k}\left(1 + \dfrac{1}{p_m} + \dfrac{1}{p_m^2} + \ldots\right)>$
+$1 + \dfrac 12 + \cdots + \dfrac 1k$,
+\end{center}
+поэтому произведение $\prod\limits_{k=1}^{\infty}\left(1 - \dfrac{1}{p_k}\right)^{-1}\mbox{ расходится к }+\infty$,
+вместе с ним расходятся и ряды $-\sum\limits_{k=1}^{\infty}\ln\left(1 - \dfrac{1}{p_k}\right)\mbox{ и }$
+$\sum\limits_{k=1}^{\infty}\dfrac{1}{p_k}$.
+

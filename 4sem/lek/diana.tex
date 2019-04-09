@@ -1,0 +1,129 @@
+\documentclass[12pt,titlepage]{report}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{textcomp}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphics,epsfig}
+\usepackage{latexsym} 
+\pagestyle{empty}
+\frenchspacing
+\textwidth=16cm
+\textheight=25cm
+\topmargin=-0.5in
+\oddsidemargin=0mm
+\newcommand\ds{\displaystyle}
+\newtheorem{object}{Определение}
+\newtheorem{approval}{Утверждение}
+\newtheorem{theorem}{Теорема}
+\newtheorem{example}{Пример}
+\newtheorem{lemma}{Лемма}
+\newtheorem{task}{Задача}
+\newtheorem{sledstvie}{Следствие}
+\def\R{\mathbb R}
+\def\N{\mathbb N}
+\def\dx{{\rm d}x}
+\def\dxy{{\rm d}xy}
+
+\begin{document}
+\chapter{Криволинейные интегралы,зависящие только от пределов интегрирования}
+\centerline{Диана Максимова}
+\vskip 5mm
+Будем считать, что $P,Q,R$ -- гладкие функции. Сформулируем и докажем теорему о независимости криволинейного интеграла от пути интегрирования, имеющего фиксированные начальную и концевую точки.
+\par\textbf{Т е о р е м а 1.} \textit{ Пусть $L$ -- кусочно-гладкая невырожденная кривая. Тогда для того чтобы интеграл
+\vskip 5mm
+$$I=\int_L{Pdx+Qdy+Rdz}$$
+\vskip 5 mm
+не зависел от пути интегрирования (а зависел только от начальной и концевой точек кривой $L$), необходимо и достаточно, чтобы существовала функция $h(x,y,z)$ такая, что }
+\vskip 5mm
+$$dh=Pdx+Qdy+Rdz.$$
+\vskip 5mm
+
+Мы считаем, что $P,Q,R,L$ определены внутри некоторого шара $\Omega\in\mathbb{R}^3$.
+
+\par\textit{Д о к а з а т е л ь с т в о. Необходимость.} Пусть интеграл $I$ не зависит от пути интегрирования. Обозначим  через $\bar{r}_{0}$ центр шара $\Omega$ и через $\bar{r}_{1}, \bar{r}_{2}$ -- произвольные точки шара $\Omega$. Поскольку интеграл $I$ зависит только от начальной и концевой точек кривой $L$, интеграл $\int_{\bar{r}_{1}, \bar{r}_{2}}\omega$,$\omega = Pdx+Qdy+Rdz$, есть функция от $\bar{r}$. Обозначим ее через $h(\bar{r})$. Пусть точки $\bar{r}_{1}$  и $\bar{r}_{2}$ лежат на прямой, параллельной оси $Ox$. Тогда
+\vskip 5 mm
+$$h(\bar{r})-h(\bar{r}_{1})=\int_L{Pdx}=\int_{x_{1}}^x P(t,y_{1},z_{1})dt.$$
+\vskip 5 mm
+Дифференцируя это равенство по первой переменной $x$, получим
+\vskip 5 mm
+$$\frac{\partial h(\bar{r})}{\partial x} = P(\bar{r}).$$
+\vskip 5mm
+Аналогично, имеем 
+\vskip 3mm
+$$\frac{\partial h}{\partial y} = Q, \frac{\partial h}{\partial z} = R.$$
+\vskip 3mm
+Следовательно, дифференциальная форма $\omega$ есть полный дифференциал. Необходимость доказана. 
+\par \textit{Доcтаточность.} Пусть $\bar{r}_{1}$  и $\bar{r}_{2}$ -- любые точки, принадлежащие $\Omega$ и $L$ -- кусочно-гладкая невырожденная кривая, имеющая своими концами точки $\bar{r}_{1}$ и $\bar{r}_{2}$. Пусть $\bar{r}=\bar{r}(t),t\in[0;1]$, -- параметризация этой кривой. Тогда, переходя от криволинейного интеграла к определенному интегралу от одной переменной, получим
+\vskip 5mm
+$$\int_L dh=\int_0^1 h'(\bar{r}(t))dt=h(\bar{r}_{2})-h(\bar{r}_{2}).$$
+\vskip 5mm
+Это означает, что интеграл от полного дифференциала зависит от начальной и концевой точке пути интегрирования, но не зависит от самого этого пути. Теорема 1 доказана.
+Выясним теперь условия, при которых дифференциальная форма $\omega$ есть полный дифференциал от некоторой функции $h(\bar{r})$. Для простоты рассмотрим только двумерный случай.
+\par\textbf{Т е о р е м а 2.} \textit{Пусть $\Omega$ -- выпуклая область в $\mathbb{R}^2.$ Для того, чтобы дифференциальная форма $\omega=Pdx+Qdy$ на $\Omega$ была полным дифференциалом, необходимо и достаточно, чтобы для всех точек $\Omega$ выполнялось неравенство $\frac{\partial P}{\partial y}=\frac{\partial Q}{\partial y}.$ }
+\par\textit{Д о к а з а т е л ь с т в о. Необходимость.}  Если дифференциальная форма $\omega$ является полным дифференциалом, то есть $\omega=dh$, то равенство $\frac{\partial P}{\partial y}=\frac{\partial Q}{\partial y}$ означает равенство смешанных производных. Необходимость доказана.
+\par\textit{   Достаточность.}  Пусть выполняется равенство
+\vskip 3mm
+$$\frac{\partial P}{\partial y}=\frac{\partial Q}{\partial y}$$
+\vskip 3mm
+Рассмотрим функцию
+\vskip 3mm
+$$h(x,y)=\int_{x_{0}}^x P(t,y)dt+\int_{y_{0}}^y Q(x_{0},v)dv,$$
+\vskip 3mm
+где $(x_{0},y_{0})$ -- некоторая фиксированная точка области $\Omega.$ Тогда имеем 
+\vskip 3mm
+$$\frac{\partial h}{\partial x}=P(x,y).$$
+\vskip 3mm
+Далее, по правилу Лейбница получим
+\vskip 3mm
+$$\frac{\partial h}{\partial y}=Q(x_{0},y)+\int_{x_{0}}^x \frac{\partial P(t,y)}{\partial y} dt=Q(x_{0},y)+\int_{x_{0}}^x \frac{\partial Q(t,y)}{\partial t} dt=$$
+\vskip 3mm
+$$=Q(x_{0},y)+Q(x,y)-Q(x_{0},y)=Q(x,y).$$
+\vskip 3mm
+Таким образом, дифференциальная функция $h(x,y)$ совпадает с дифференциальной формой $\omega.$ Теорема 2 доказана.
+Аналогично доказывается следующее утверждение.
+\par\textbf{Т е о р е м а 3.} \textit{Пусть $\Omega$ -- выпуклая область. Дифференциальная форма $\omega=Pdx+Qdy+Rdz$ тогда и только тогда является полным дифференциалом, когда для всех точек области $\Omega$ выполняются равенства}
+\vskip 3mm
+$$\frac{\partial P}{\partial y}=\frac{\partial Q}{\partial x}, \frac{\partial P}{\partial z}=\frac{\partial R}{\partial x}, \frac{\partial Q}{\partial z}=\frac{\partial R}{\partial y}.$$
+\vskip 3mm
+И вообще, в выпуклой области $\Omega\in\mathbb{R}^n$ условие, что дифференциальная форма $\omega$ является полным дифференциалом некоторой функции $h$, т.е $\omega=dh,$ эквивалентно условию $d\omega=0.$
+\par\textbf{Пример.} Пусть $f(z)$ -- функция комплексного переменного $z=x+iy, x,y\in\mathbb{R}$, принимающая комплексные значения 
+\vskip 3mm
+$$f(z)=u(x,y)+iv(x,y)=u+iv,$$
+\vskip 3mm
+где $u,v$ -- вещественнозначные функции и $f(z)$ -- однозначная в некоторой области $\Omega$ комплексной плоскости $\mathbb{C}$. Пусть $L$ -- простая спрямляемая кривая, $L\in\Omega.$
+Определим криволинейный интеграл $I$ от функции $f(z)$ по кривой $L$ следующей формулой:
+\vskip 3mm
+$$I=\int_L f(z)dz=\int_l(u+iv)(dx+idy)=\int_L(udx-vdy)+i\int_L(vdx+udy).$$
+\vskip 3mm
+Пусть функции $u=u(x,y)$ $v=v(x,y)$ являются гладкими в области $\Omega.$ Далее потребуем, чтобы интеграл $I$ не зависел от кривой интегрирования $L$, А зависел только от начальной ее точки $z_{0}$ и концевой точки $z.$
+В силу теорем 1 и 2 в этом случае имеем
+\vskip 3mm
+$$\frac{\partial u}{\partial x}=\frac{\partial v}{\partial y}, \frac{\partial u}{\partial y}= - \frac{\partial v}{\partial x}.$$
+\vskip 3mm
+Эти условия называются \textbf{условиями Коши-Римана.} Отметим, что при наличии гладкости функций $u$ и $v$ в области $\Omega$ они являются необходимыми и достаточными условиями дифференцируемости функции комплексного переменного.
+Итак, пусть функции $u$ и $v$ являются гладкими. Рассмотрим интеграл
+\vskip 3mm
+$$F(z)=\int_L f(z)dz=\int_{z_{0}}^z f(z)dz=U(x,y)+iV(x,y),$$
+\vskip 3mm
+где
+\vskip 3mm
+$$U=U(x,y)=\int_{z_{0}}^z {udx-vdy}, V=V(x,y)=\int_{z_{0}}^z{vdx+udy},$$
+\vskip 3mm
+Отсюда получим
+\vskip 3mm
+$$\frac{\partial U}{\partial z}=\frac{\partial V}{\partial y} = u, -\frac{\partial U}{\partial y}=\frac{\partial V}{\partial z}=v.$$
+\vskip 3mm
+Следовательно, функция $F(z)$ является дифференцируемой и
+\vskip 3mm
+$$F'(z)=\frac{\partial U}{\partial x}+i\frac{\partial V}{\partial x}=u+iv=f(z).$$
+\vskip 3mm
+Таким образом, функция $F(z)$ является первообразной функции $f(z),$ и для интеграла от функции $f(z)$ имеет место теорема Ньютона-Лейбница.
+Простым следствием теорем 1 и 2 является текущая теорема.
+\par\textbf{Т е о р е м а 4.}\textit{Пусть функция $f(z)$ -- однозначна и непрерывна в области $\Omega,$ принадлежаще комплексной плоскости $\mathbb{C}.$ Тогда для любого простого спрямляемого ориентированного замкнутого контура $L\in\Omega$ справедливо равенство}
+\vskip 5mm
+$$\int_L f(z)dz=0$$
+\vskip 5mm
+Полученная теорема называется \textbf{ основной теоремой Коши} в теории функции одного комплексного переменного.
+\end{document}

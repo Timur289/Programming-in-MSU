@@ -1,0 +1,28 @@
+=========================================================
+name.tex :
+=========================================================
+
+\documentclass[12pt,english,russian]{article}
+\usepackage[cp866]{inputenc}
+\usepackage{babel}
+\frenchspacing
+\pagestyle{empty}
+\input set.txt
+\begin{document}
+\input sem4_pr.txt
+\end{document}
+
+=========================================================
+set.txt :
+=========================================================
+
+\textwidth=16cm
+\topmargin=-0.5in     %hplj
+\textheight=25cm  %hplj
+\oddsidemargin=0mm
+\newcommand{\rmd}{{\rm d}}
+\newcommand{\dfrac}[2]{ {\displaystyle #1 \over \displaystyle #2} }
+\makeatletter
+\renewcommand{\baselinestretch}{1.2}
+\makeatother
+

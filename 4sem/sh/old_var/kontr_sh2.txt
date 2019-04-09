@@ -1,0 +1,139 @@
+\begin{center}
+\bf
+``Программирование в Shell: Контрольная работа \No~2''
+\end{center}
+
+\begin{enumerate}
+\item
+Какие права будут установлены для файла {\tt test.txt} в результате выполнения команды:
+\\
+а) {\tt chmod 731 test.txt} \\
+б) {\tt chmod 735 test.txt} \\
+в) {\tt chmod 740 test.txt} \\
+г) {\tt chmod 321 test.txt} \\
+д) {\tt chmod 041 test.txt} 
+\item 
+Что произойдет в результате выполнения команды:
+\\
+\verb|chmod -R 640 ~/*|?
+\\
+Как это исправить?
+\item 
+Что произойдет в результате выполнения команды в домашней директории пользователя:
+\\
+а) \verb|ln -s /home/user/asd/test/tmp ~/temp|
+\\
+б) \verb|ln -s /home/user/asd/test/tmp|
+\item (Фахрия)
+Что произойдет в результате выполнения команд?
+\begin{verbatim}
+SOURCE_COUNT=13
+DEST_COUNT=15
+[ "$DEST_COUNT" -gt "$SOURCE_COUNT" ]
+echo $?
+\end{verbatim}
+\item (Фахрия)
+Для каких целей может использоваться выражение
+\verb|expr rr + 1|?
+\item (Фахрия)
+Вы обнаружили некоторый файл сценария:
+\begin{verbatim}
+#!/bin/sh
+if grep 'stud\>' /log/activ.log > /dev/null 2>&1
+then
+echo "Yes"
+else
+echo "No"
+fi
+\end{verbatim}
+Что он делает?
+\item (Нармина)
+Для чего предназначена следующая команда?
+\begin{verbatim}
+$ grep -c 'stud\>' /log/activ.log
+\end{verbatim}
+\item (Нармина)
+В чем отличие выполнения команд:
+\begin{verbatim}
+$ echo `hello`
+$ echo `date`
+\end{verbatim}
+\item 
+Что произойдет в результате выполнения команды в домашней директории пользователя:
+\\
+а) \verb|find / -name "ls" -print 2>null|
+\\
+б) \verb|find / -name "ls" -print 1>q|
+\item 
+Что произойдет в результате выполнения команды с правами суперюзера (\verb|su|, \verb|sudo|)
+\\
+а) \verb|find /home -nogroup -print|
+\\
+б) \verb|find /home -size +100M -print|
+\item (Аян)
+Начинающий программист пытается дать команду показать c 1-ой по 3-ю строки файла из \verb|a.txt|:
+\begin{verbatim}
+sed '1,3p' a.txt 
+\end{verbatim}
+Что произойдет? В чем он ошибся?
+\item 
+(Ляман)
+Начинающий программист написал некоторый сценарий: 
+\begin{verbatim}
+#!/bin/sh
+# test_in2
+for files in `ls *.txt`
+do
+sed "/^$/d" $files>$files.log
+mv $files.log $files
+done
+\end{verbatim}
+Для чего он предназначен? В чем ошибка?
+Как ее исправить?
+\item (Нармина)
+Имеется файл \verb|price.txt| со следующей информацией:
+\begin{verbatim}
+Book		40	IN_STOKE	11.02.2014
+Copybook	50	IN_STOKE	11.02.2014
+Pen		140	OUT_STOKE	08.01.2014
+Pen		120	IN_STOKE	09.01.2014
+Pencil		100	OUT_STOK	05.03.2014
+. . .		...	...		..........
+\end{verbatim}
+Первый столбец --- название, второй --- количество, третий --- место хранения, четвертый --- дата завоза.
+\\
+а) Что случится в результате выполнения команды:
+\begin{verbatim}
+awk '{print $0}' price.txt | tee price.out
+\end{verbatim}
+б) Напишите команду, отображающую первый, второй и последний столбец на экран.
+\\
+в) Напишите команду, уменьшающую количество книг на 20 и выводящую соотвествующую строку на экран.
+\\
+г) Выяснилось, что название \verb|Pen| не точно идентифицирует товар.
+Напишите команду, меняющую его назавание на \verb|BluePen|
+\item (Камилла)
+Имеется файл \verb|spis.txt| со следующей информацией:
+\begin{verbatim}
+Elly	18	F	Math.	France
+Tom	19	M	Psi.	UK
+Lila	18	F	Phil.	Germany
+. . .	..	..	.....
+\end{verbatim}
+и файл \verb|exam.txt| со следующей информацией:
+\begin{verbatim}
+Elly	5
+Tom	3
+Lila	4
+. . .	..
+\end{verbatim}
+Первые поля в этих файлах общие.
+Как объеденить информацию из этих файлов файле \verb|all_inf.txt|?
+\item (Татьяна)\\
+Вы решили начать новую компьютерную жизнь! 
+Вам надоел обезличенный пользователь \verb|student|.
+Вы решили завести нового пользователя \verb|studentik|.
+Впрочем часть файлов вы решили сохранить \ldots
+Какие действия необходимо предпринять для реализации этой задумки?
+\end{enumerate}
+

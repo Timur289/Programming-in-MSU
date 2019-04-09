@@ -1,0 +1,8 @@
+#!/bin/sh
+# test_in1
+echo "Введи фамилию и имя"
+read name1 name2
+echo "Описание"
+read
+echo $name2 $name1
+echo $REPLY

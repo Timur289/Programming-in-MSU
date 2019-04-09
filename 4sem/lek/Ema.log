@@ -1,0 +1,38 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2016/dev) (preloaded format=latex 2016.10.26)  17 MAY 2017 15:48
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**Ema.tex
+(./Ema.tex
+LaTeX2e <2015/01/01> patch level 2
+Babel <3.9m> and hyphenation patterns for 59 languages loaded.
+
+./Ema.tex:1: LaTeX Error: No counter 'object' defined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 \setcounter{object}{0}
+                          
+? 
+./Ema.tex:1: Emergency stop.
+ ...                                              
+                                                  
+l.1 \setcounter{object}{0}
+                          
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+ 
+Here is how much of TeX's memory you used:
+ 7 strings out of 493205
+ 262 string characters out of 6142008
+ 51067 words of memory out of 5000000
+ 3557 multiletter control sequences out of 15000+600000
+ 3640 words of font info for 14 fonts, out of 8000000 for 9000
+ 1137 hyphenation exceptions out of 8191
+ 5i,0n,4p,41b,14s stack positions out of 5000i,500n,10000p,200000b,80000s
+No pages of output.

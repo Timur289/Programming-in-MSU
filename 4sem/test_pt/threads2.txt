@@ -1,0 +1,44 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <pthread.h>
+#include <errno.h>
+#include <semaphore.h>
+sem_t sem;
+
+void *thread_func(void *arg)
+{
+ int i;
+ int loc_id=*(int *)arg;
+ sem_post(&sem);
+ for (i=0;i<5;i++){printf("Thread %i is running\n",loc_id); sleep(1);}
+}
+
+int main(void)
+{
+ int id,result;
+ pthread_t threadm[3];
+ sem_init(&sem,0,0);
+
+ for(id=1;id<4;id++)
+ {
+ result=pthread_create(&threadm[id-1], NULL, thread_func,&id);
+ if(result!=0){
+               printf("Creating the %d thread failed\n",id); 
+               return EXIT_FAILURE;
+              }
+ else printf("%d thread creating\n",id);
+ sem_wait(&sem);
+ }
+ for(id=1;id<4;id++){
+ result=pthread_join(threadm[id-1],NULL);
+ if(result!=0){
+               printf("Joining the %d thread failed",id); 
+               return EXIT_FAILURE;
+              }
+ else printf("%d thread joining\n",id);
+ }
+
+ sem_destroy(&sem);
+ printf("Done\n");
+ return EXIT_SUCCESS;
+}

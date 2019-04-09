@@ -1,0 +1,51 @@
+\setcounter{object}{0}
+\setcounter{approval}{0}
+\setcounter{theorem}{0}
+\setcounter{example}{0}
+\chapter{Критерий Римана интегрируемости функции на прямоугольнике}
+\vskip-1cm
+\centerline{\bf Автор: Абдуллаев Орхан}\vskip 1cm
+
+\begin{theorem}
+(критерий Римана интегрируемости функции на прямоугольнике). Для того чтобы ограниченная функция $g(x, y)$ была интегрируема на $P=[a_1, b_1]\times[a_2, b_2]$, необходимо и достаточно, чтобы выполнялось одно из эквивалентных условий:
+\begin{enumerate}
+\item $\lim\limits_{\Delta_T\to 0}{\Omega(T)}=0,$
+\item $I^*=I_*,$
+\item $\inf\limits_T \Omega(T)=0.$
+\end{enumerate}
+\end{theorem}
+$\blacktriangleleft$ Докажем сначала эквивалентность условия интегрируемости функции условию 1.
+\par \emph{Необходимость.} Пусть $\lim\limits_{\Delta V\to 0}{\sigma (V)}=I.$ Это значит, что для любого $\epsilon_1>0$ найдется $\delta_1=\delta_1(\epsilon_1)>0$ такое, что для любого размеченного разбиения $V$ с условием $\Delta_V<\delta_1$ имеем $|\sigma(V)-I|<\epsilon_1$, т.е.
+\begin{equation}
+\label{trivial}
+I-\epsilon_1<\sigma(V)<I+\epsilon_1
+\end{equation}
+\par Расмотрим произвольное неразмеченное разбиение $T$ с условием $Delta_T<\delta_1.$ Для него получим
+$$s(T)=\inf\limits_{V\in A_p(T)}{\sigma(V)},\quad S(T)=\sup\limits_{V\in A_p(T)}{\sigma(V)}.$$
+Следовательно, значения $s(T)$ и $S(T)$ лежат на дном отрезке $[I-\epsilon_1, I+\epsilon_1]$ длины $2\epsilon_1$, т.е. имеет место неравенство $$\Omega(T)=S(T)-s(T)\le 2\epsilon_1$$.
+\par\parindent=1cm
+Если мы возьмем $\epsilon_1=\epsilon/3, \delta(\epsilon)=\delta_1(\epsilon_1),$ то получим, что для любого $\epsilon>0$ существует число $\delta=\delta(\epsilon)>0$ такое, что при любом разбиении $T$ с условием $\Delta_T<\delta$ имеем $\Omega(T)<\epsilon$, то есть справедливо соотношение $\lim\limits_{\Delta_T\to 0}{\Omega(T)}=0$. Необходимость доказана.
+\par\parindent=1cm
+\emph{Достаточность.} Надо доказать, что из условия $\lim\limits_{\Delta_T\to 0}{\Omega(T)}=0$ следует существование предела $\lim\limits_{\Delta_V\to 0}{\sigma(V)}$.
+\par\parindent=1cm Сначала убедимся, что $I_*=I^*$. Из леммы 6 для любого разбиения $T\in A_p$ имеем $$0\le I_*-I^*\le \Omega(T),$$ и, следовательно, $h=I_*-I^*\to 0$ при $\Delta_T\to 0.$
+\par\parindent=1cm В силу того, что $h$ - постоянное число, то $h=0$ и $I_*=I^*=I.$ Осталось доказать, что $\sigma(V)\to I$ при $\Delta_V\to 0.$ Возьмем произвольное положительное число $\epsilon_1$. Из условия существования предела $\lim\limits_{\Delta_V\to 0}{\Omega(T)}$ найдется число $\delta_1=\delta_1(\epsilon_1)>0$ такое, что для всех разбиений $T, \Delta_T<\delta_1$,  выполняется неравенство $\Omega(T)<\epsilon_1.$ Но тогда для любой разметки $V$ этого разбиения будем иметь $$s(T(V))\le\sigma(V)\le S(T(V)),\quad s(T(V))\le I_*=I=I^*\le S(T(V)),$$ $$ S(T(V))-s(T(V))=\Omega(T)<\epsilon,$$ т.е. обе точки $\sigma(V)$ и $I$ лежат на отрезке $[s(T(V)), S(T(V))],$ длина которого не превосходит $\epsilon_1$, поэтому для любого размеченного разбиения $V$ с условием $\Delta_V<\delta_1$ имеем $|\sigma(V)-I|<\epsilon_1$. Следовательно, $\lim\limits_{\Delta_V\to 0}{\sigma(V)}=I.$
+
+\par\parindent=1cm Итак, условие 1 теоремы 1 эквивалентно условию интегрируемости функции по Риману.
+\par\parindent=1cm Докажем теперь эквивалентность условий 1, 2 и 3. Для этого убедимся в справедливости цепочки утверждений: $$1)\stackrel{a)}\Rightarrow 2)\stackrel{b)}\Rightarrow 3)\stackrel{c)}\Rightarrow 1).$$
+\par\parindent=1cm a) Нам надо доказать, что если $\lim\limits_{\Delta_T\to 0}{\Omega(T)}=0,$ то $I_*=I^*.$ Но этот факт уже установлен при доказательстве достаточности условия 1.
+\par\parindent=1cm b) Сначала докажем, что $$\inf\limits_T{\Omega(T)}=h=I^*-I_*.$$ Число $h=I^*-I_*$ - нижняя грань $\Omega(T)$, поскольку из леммы 6 имеем $$\Omega(T)\ge I^*-I_*=h.$$ Докажем, что $h$ - точная нижняя грань множества {$\Omega(T)$}. Для этого возьмем произвольное $\epsilon>0$. Тогда в силу определения сумм Дарбу будем иметь, что существуют разбиения $T_1$ и $T_2$ такие, что $$S(T_1)<I^*+\frac{\epsilon}{2},\quad s(T_2)>I^*-\frac{\epsilon}{2}.$$
+\par\parindent=1cm Возьмем разбиение $T_3=T_1\cup T_2$. Получим $$S(T_3)\le S(T_1)<I^*+\frac{\epsilon}{2},\quad s(T_3)\ge s(T_2)>I^*-\frac{\epsilon}{2}.$$ Отсюда следует, что $$\Omega(T)<I^*-I_*+\epsilon=h+\epsilon,$$ т.е. $h=\inf\limits_{T}{\Omega(T)}.$
+\par\parindent=1cm Таким образом, из доказанного и условия 2 имеем $$\inf\limits_T{\Omega(T)}=I^*-I_*=0.$$
+\par\parindent=1cm Тем самым утверждение b) доказано.
+\par\parindent=1cm c) Нам надо доказать, что если $\inf\limits_T{\Omega(T)}=0,$ то $\lim\limits_{\Delta_T}{\Omega(T)}=0.$
+\par\parindent=1cm Имеем, что для любого $\epsilon>0$ существует разбиение $T_1$ такое, что $\omega(T_1)<\epsilon/2.$ Разбиению $T_1$ соответсвует пара разбиений $(T_1(x), T_1(y))$ по осям $Ox$ и $Oy$. Количество точек разбиений $T_1(x), T_1(y)$ обозначим через $q$.
+\par\parindent=1cm Далее, поскольку $g(x, y)$ ограничена на $P$, существует $M>0$ такое, что 
+\\$|g(x, y)|<M$ для всех $(x, y)\in P$. Обозначим через $d$ длину наибольшейстороны прямоугольника $P$. Положим $\delta=\frac{\epsilon}{4qdM}.$
+\par\parindent=1cm Возьмем теперь любое разбиение $T=T(T(x), T(y))$ с условием $\Delta_T<\delta.$ Тогда для разбиения $T_2=T\cup T_1$ имеем $$\Omega(T_2)\le \Omega(T_1)<\frac{\epsilon}{2},$$ поскольку $T_2$ есть измелчение разбиения $T_1$, т.е. $T_2\supset T_1$.
+\par\parindent=1cm Перейдем к оценке сверху величины $\Omega(T)$. Имеем $$\Omega(T)=\Omega(T_2)+\alpha(T,T_1).$$ Здесь $\alpha(T,T_1)=\alpha(T,T_2)\ge 0$, поскольку $T_2\supset T_1$. Кроме того, $$\alpha(T, T_1)=\sum\sum\limits_{(k,l)}{(\omega_{k,l}\Delta x_k \Delta y_t-\omega'_{k, l} \Delta x'_k\Delta y'_l-...-\omega^{(r)}_{k,l}\Delta x^{(r)}_k\Delta y^{(r)}_l)}\le$$ $$\le\sum\sum\limits_{(k,l)}{\omega_{kl} \Delta x_k \Delta y_l}$$ причем символ $\sum\sum\limits_{(k,l)}$ обозначает, что суммирование ведется по тем парам $(k,l),$ для которых прямоугольник $P_{k,l}$ разбиения $T$ разлагается на меньшие прямоугольники с индексами $',...,^{(r)}$ посредством разбиения $T_1$ (или $T_2$). Другими словами, пара $(k,l)$ такова, что внутри отрезков $\Delta^{(x)}_k$ или $\Delta^{(y)}_l$ лежит по крайней мере одна точка разбиения $T_1(x)$ или разбиения $T_1(y)$.
+\par\parindent=1cm Достаточно оценить сверху величину $\alpha(T, T_1)$. Будем считать, что символ $\sum\limits_{(k)}\sum\limits_l$ означает, что суммирование ведется по тем парам $(k,l)$, для которых внутри отрезка $\Delta^{(x)}_k$ находится по крайней мере одна точка разбиения $T_1(x)$, а переменная $l$ принимает все возможные значения, определяемые разбиением $T$. Аналогично определяется символ $\sum\limits_{(l)}\sum\limits_k.$ При проведении оценки воспользуемся следующими неравенствами $$\omega_{k,l}\le 2M,\quad \Delta x_k<\delta,\quad \Delta y_t<\delta,\quad \sum\limits_k{\Delta x_k}<d,\quad \sum\limits_t{\Delta y_t}<d.$$ Тогда будем иметь
+$$\alpha(T, T_1)\le \sum\sum\limits_{(k,l)}{\omega_{k,l}\Delta x_k\Delta y_l\le}$$
+$$\le \sum\limits_{(k)}\sum\limits_l{\omega_{k,l}\Delta x_k\Delta y_l}+\sum\limits_k\sum\limits_{(l)}{\omega_{k,l}\Delta x_k\Delta y_l}\le$$
+$$2M\delta\left(\sum\limits_{(k)}\left(\sum\limits_l{\Delta y_l}\right)+\sum\limits_{(l)}\left(\sum\limits_k{\Delta x_k}\right)\right)\le$$
+$$\le 2M\delta d\left (\sum\limits_{(k)}1+\sum\limits_{(l)}1\right)\le 2M\delta dq\le \frac{\epsilon}{2},$$
+Следовательно, $$\Omega(T)=\Omega(T_2)+\alpha(T, T_1)<\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon.$$ Утверждение c) доказано. $\blacktriangleright$

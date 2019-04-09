@@ -1,0 +1,147 @@
+\setcounter{object}{0}
+\setcounter{approval}{0}
+\setcounter{theorem}{0}
+\setcounter{example}{0}
+
+\chapter{Применение формулы Тейлора к некоторым функциям}
+\centerline{ \bf Автор: Алиева Эльмира} \vskip 1cm
+\quad\upshape{\bfseries{1. Показательная функция: }} $f(x)=e^x$. Имеем
+\begin{center}
+$f(0)=f'(0)=...=f^{(n)}(0)=1, \quad f^{(n+1)}(x)=e^x$.
+\end{center}
+Формула Тейлора с остаточным членом в форме Лагранжа принимает вид
+\begin{center}
+$e^x=1+\dfrac{x}{1!}+\dfrac{x^2}{2!}+...+\dfrac{x^n}{n!}+\dfrac{x^{n+1}}{(n+1)!}e^{\theta x}, \quad 0<\theta <1.$
+\end{center}
+При любом фиксированном $x$ остаток в ней стремится к нулю, поскольку
+\begin{center}
+$\lim\limits_{n\to\infty}\dfrac{x^{n+1}}{(n+1)!} = 0$.
+\end{center}
+\quad\upshape{\bfseries{2. Функция }}$f(x) = \sin x$. Имеем
+\begin{center}
+$f^{(n)}(x) = \sin\left(x+n \dfrac{\pi}{2}\right)$,
+\end{center}
+\begin{center}
+$f^{(2k+1)}(\theta x)=\sin\left(\theta x+(2k+1) \dfrac{\pi}{2}\right)=(-1)^k \cos\theta x.$
+\end{center}
+Формула Тейлора с остаточным членом в форме Лагранжа дает
+\begin{center}
+$\sin x=x-\dfrac{x^3}{3!}+\dfrac{x^5}{5!}-...+(-1)^{k-1}\dfrac{x^{2k-1}}{(2k-1)!}+(-1)^k\dfrac{x^{2k+1}}{(2k+1)!} \cos \theta x$.
+\end{center}
+\quad\upshape{\bfseries{3. Функция: }} $f(x)=\cos x$. Имеем
+\begin{center}
+$f^{(n)}(x)=cos\left(x+n \dfrac{\pi}{2}\right)$,
+\end{center}
+\begin{center}
+$f^{(2k)}(\theta x)=\cos\left(\theta x+2k\cdot\dfrac{\pi}{2}\right)=(-1)^k\cos\theta x$.
+\end{center}
+Тогда
+\begin{center}
+$\cos x=1-\dfrac{x^2}{2!}+\dfrac{x^4}{4!}-...+(-1)^{k-1}\dfrac{x^{2k-2}}{(2k-2)!}+(-1)^k\dfrac{x^{2k}}{(2k)!}\cos\theta x$.
+\end{center}
+\quad\upshape{\bfseries{4. Функция: }} $f(x)=\ln(1+x)$. Имеем
+\begin{center}
+$f'(x)=\dfrac{1}{1+x}, \quad f^{(n)}(x)=(-1)^{n-1}\cdot\dfrac{(n-1)!}{(1+x)^n}$.
+\end{center}
+Следовательно,
+\begin{center}
+$\ln(1+x)=x-\dfrac{x^2}{2}+\dfrac{x^3}{3}-...+(-1)^{n-1}\dfrac{x^n}{n}+R_n$,
+\end{center}
+\begin{center}
+$R_n=(-1)^n\dfrac{x^{n+1}}{n+1}\left(\dfrac{1}{1+\theta x}\right)^{n+1}$ 
+\end{center}
+Заметим, что если $|x|<1$, то $R_n\to{0}$ при $n\to{+\infty}$. Кроме того,\\
+\parа) если $0\leq x<1$, то $|R_n|\leq\dfrac{1}{n+1}$;
+\parб) если $-1<-r\leq x<0$, то $|R_n|\leq\dfrac{r^{n+1}}{n(1-r)}$, где
+\begin{center}
+$R_n=\dfrac{(-1)^n}{n}\dfrac{x^{n+1}}{1+\theta x}\left(\dfrac{1-\theta}{1+\theta x}\right)^n$
+\end{center}
+(остаток в форме Коши).
+
+\upshape{\bfseries{5. Функция: }} $f(x)=(1+x)^\alpha$. Имеем
+\begin{center}
+$f^{(n)}=\alpha (\alpha -1)...(\alpha -n+1)(1+x)^{\alpha -n}$,
+\end{center}
+поэтому
+\begin{center}
+$(1+x)^\alpha =1+\alpha x+\dfrac{\alpha(\alpha -1)}{2} x^2+\dfrac{\alpha(\alpha -1)(\alpha -2)}{3!}x^3+...$\\
+$+\dfrac{\alpha(\alpha -1)...(\alpha -n+1)}{n!}x^n+R_n$,
+\end{center}
+где 
+\begin{center}
+$R_n=\dfrac{\alpha(\alpha -1)...(\alpha -n)}{(n+1)!}x^{n+1}(1+\theta_1x)^{\alpha-n-1}, \quad  0<\theta_1<1$
+\end{center}
+(остаток в форме Лагранжа),
+\begin{center}
+$R_n=\dfrac{\alpha(\alpha -1)...(\alpha -n)}{(n+1)!}x^{n+1}(1+\theta_2x)^{\alpha-1}(\dfrac{1-\theta_2}{1+\theta_2x})^n, \quad 0<\theta_2<1$
+\end{center}
+(остаток в форме Коши). Если $|x|<1$, то $R_n \to 0$ при $n \to \infty.$
+\\ 
+\vskip 2mm
+Другими словами,
+\begin{center}
+$\lim\limits_{n\to\infty} f_n(0,x)=f(x) = 0$.
+\end{center}
+Это предельное выражение символически записываетя так:
+\begin{center}
+$f(x)=f(a)+\dfrac{f'(a)}{1!}(x-a)+...+\dfrac{f^{(n)}(a)}{n!}(x-a)^n+...$ .
+\end{center}
+\vskip 2mm
+и называется \upshape{\bfseries{рядом Тейлора функции}} $f(x)$  вточке $x=a$.
+
+Заметим, что при всех $n\in N$ для $n$-го члена ряда имеет место равенство
+\begin{center}
+$\dfrac{f^{(n)}(a)}{n!}(x-a)^n=\dfrac{{\rm d}^nf(x)}{n!}=\left. \dfrac{{\rm d}^nf(x)}{n!}\right|_{\overset{x=a}{\triangle x=x-a}} $.
+\end{center}
+
+Поэтому ряд Тейлора можно переписать в следующем виде
+\begin{center}
+$\Delta f=\dfrac{{\rm d}f}{1!}+\dfrac{{\rm d}^2f}{2!}+...+\dfrac{{\rm d}^nf}{n!}+...$ .
+\end{center}
+Тем самым определен точный смысл равенства, приведенного ранее в лекции 18, \S4.
+\\
+\vskip 1mm
+\slshape{Замечание.} Ряд Тейлора не всегда сходится к породившей его функции.
+\vskip 3mm
+\upshape{\bfseries{Пример.}}
+
+\begin{equation*}
+f(x) =
+ \begin{cases}
+   $e$^{-\tfrac{1}{x^2}}, &\text{если $x \ne 0$,}\\
+   0, &\text{если $x=0$.}
+ \end{cases}
+\end{equation*}
+Тогда при любом натуральном $k$ имеем
+\begin{center}
+$f^{(k)}(0)=0.$
+\end{center}
+
+Таким образом, мы видим, что рядом Тейлора нулевой, а породившая его функция отлична от тождественного нуля.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

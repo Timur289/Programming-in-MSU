@@ -1,0 +1,102 @@
+\chapter{Теорема о длине дуги кривой}
+\centerline{Алиса Зинина}
+\vskip 5mm
+\begin{theorem} Пусть функции $\varphi_1(t),\ldots,\varphi_m(t)$, задающие простую кривую $L$, имеют непрерывные производные на отрезке $[a,b]$. Тогда кривая $L$ $-$ спрямляема и ее длина $|L|$ выражается формулой
+\vskip 5mm
+$$|L|=\int_a^b{\sqrt{(\varphi_1'(t))^2+\cdots+(\varphi_m'(t))^2}dt}.$$
+\end{theorem}
+\vskip 5mm
+$\blacktriangleleft$ Покажем сначала, что длина любой ломаной не превосходит величины
+\vskip 5mm
+$$A=\int_a^b\sqrt{(\varphi_1'(t))^2+\cdots+(\varphi_m'(t))^2}dt.$$
+\vskip 5mm
+Пусть узлы ломаной $l$ соответствуют точкам $t_0,t_1,\cdots,t_n$ разбиения $T$ отрезка $[a,b]:a=t_0<t_1<\cdots<t_n=b. $ Тогда имеем $$|l|=\sum_{s=1}^n\sqrt{(\varphi_1(t_s)-\varphi_1(t_{s-1}))^2+\cdots+(\varphi_m(t_s)-\varphi_m(t_{s-1}))^2}=$$
+$$=\sum_{s=1}^n\sqrt{\left(\int_{t_{s-1}}^{t_s}{\varphi_1'(t)dt}\right)^2+\cdots+\left(\int_{t_{s-1}}^{t_s}{\varphi_m'(t)dt}\right)^2}.$$
+Далее, в силу неравенства (см. гл. VIII, $\S6$, теорема 3)
+$$\sqrt{\left(\int_a^b{f_1(t)dt}\right)^2+\cdots+\left(\int_a^b{f_m(t)dt}\right)^2}\le\int_a^b{\sqrt{f_1^2(t)+\cdots+f_m^2(t)}dt}$$
+получим
+$$|l|\le\sum_{s=1}^n\int_{t_{s-1}}^{t_s}{\sqrt{(\varphi_1'(t))^2+\cdots+(\varphi_m'(t))^2}dt}=A$$$ 
+\blacktriangleright$
+
+Таким образом мы доказали, что $A$ --- верхняя грань длин всех ломаных $l$, вписанных в кривую $L$, т.е. кривая $L$ является спрямляемой.
+
+Покажем, что $A$ есть {\itshape точная} верхняя грань длин таких ломаных, т.е. длина кривой $L$ равна $A$.
+
+Поскольку функции $\varphi_k'(t)$, $k=1,\ldots,m$, непрерывны на отрезкен $[a,b]$, но по теореме Гейне-Кантора они являются равномерно непрерывными на этом отрезке. Следовательно, при всех $k=1,\ldots,m$ для всякого $\varepsilon>0$ существует число $\delta=\delta(\varepsilon)>0$ такое, что для всех $t',t'' \in [a,b]:|t'-t''|<\delta$ выполняется неравенство
+$$|\varphi_k'(t')-\varphi_k'(t'')|<\dfrac{\varepsilon}{\sqrt{m}(b-a)}=\varepsilon_1.$$
+
+Возьмем любое разбиение $T$ отрезка $[a,b]$ с диаметром $\Delta_T<\delta, T: a=t_0<t_1\ldots<t_n=b$, и пусть ломаная $l$ соответствует этому разбиению $T$.
+
+Оценим теперь сверху разность $A-|l|\ge0.$ Имеем
+$$A-|l|=\int_a^b{\sqrt{(\varphi_1'(t))^2+\cdots+(\varphi_m'(t))^2}dt}-\sum_{s=1}^n\sqrt{\sum_{k=1}^m(\varphi_k(t_s))-\varphi_k(t_{s-1}))^2}=$$
+$$=\sum_{s=1}^n\int_{t_{s-1}}^{t_s}{\left(\sqrt{\sum_{k=1}^m(\varphi_k'(t))^2}-\sqrt{\sum_{k=1}^m\left(\dfrac{\Delta\varphi_k(t_{s-1})}{\Delta t_{s-1}}\right)^2}\right)dt},$$
+
+где $\Delta\varphi_k(t_{s-1})=\varphi_k(t_s)-\varphi_k(t_{s-1}), \Delta t_{s-1}=t_s-t_{s-1}.$
+Далее применим неравенство треугольника в следующем виде. Пусть заданы вершины $O(0,\ldots,0), A(a_1,\ldots,a_m),\\ B(b_1,\ldots,b_m)$ треугольника $OAB$. Тогда имеет место неравенство треугольника (неравенство Минковского при $p=2$):
+$$\left|{\sqrt{\sum_{k=1}^m a_k^2}-\sqrt{\sum_{k=1}^m b_k^2}}\right| \le \sqrt{\sum_{k=1}^m(a_k-b_k)^2}.$$
+Следовательно, получим
+%$$A-|l|\le\sum_{s=1}^n\int_{t_{s-1}}^{t_s}{\sqrt{\sum_{k=1}^m\left(\varphi_k'(t)-\dfrac{\Delta\varphi_k(t_{s-1})}{\Delta t_{s-1}}\right)^2 }dt$$
+$$A-|l|\le\sum_{s=1}^n\int_{t_{s-1}}^{t_s} {\sqrt{\sum_{k=1}^m{\left(\varphi_k'(t) -\dfrac{\Delta \varphi_k(t_{s-1})}{\Delta t_{s-1}}\right)^2}}dt}=$$
+$$=\sum_{s=1}^n\int_{t_{s-1}}^{t_s}\sqrt{\sum_{k=1}^m{\left(\varphi_k'(t) -\varphi_k'(\eta_{k,s})\right)^2}}dt<$$
+$$<\sum_{s=1}^n\int_{t_{s-1}}^{t_s}{\varepsilon_1 \sqrt{m} dt }= \varepsilon_1 \sqrt{m} (b-a)=\varepsilon,$$
+где $\eta_{k,s} -$ некоторая точка отрезка $[t_{s-1},t_s]$. Теорема доказана.$\blacktriangleright$
+
+\begin{sledstvie} Пусть $s=s(u)-$ длина дуги кривой $L$, задаваемой уравнениями $x_1=x_1(t),\ldots,x_m=x_m(t), a\le t\le u$. Тогда для дифференциала длины дуги кривой $ds$ справедлива формула
+$$(ds)^2=(dx_1)^2+\cdots+(dx_m)^2.$$
+\end{sledstvie}
+$\blacktriangleleft$ Из теоремы имеем
+$$s(u)=\int_a^u{\sqrt{(x_1'(t))^2+\cdots+(x_m'(t))^2}}dt.$$
+Дифференциируя это выражение, найдем
+$ds(u)=\sqrt{(x_1'(u))^2+\cdots+(x_m'(u))^2}du$, или $ds=\sqrt{(dx_1)^2+\cdots+(dx_m)^2}$.
+Следствие доказано.$\blacktriangleright$
+
+Отсюда имеем, что квадрат дифференциала длины дуги плоской кривой $(m=2)$ в полярных координатах $(r,\varphi)$ равен
+$$ds^2=dr^2+r^2 d\varphi^2,$$
+где координаты $r$ и $\varphi$ определяются по формулам:
+$$x=r\cos\varphi,\quad y=r\sin\varphi,\quad r\ge0,\quad 0\le\varphi<2\pi.$$
+Действительно,
+$$dx=\cos\varphi dr - r \sin\varphi d \varphi, \quad dy=\sin\varphi dr + r\cos\varphi d\varphi.$$
+\vskip 4mm
+Следовательно, получим
+\vskip 4mm
+$$ds^2 = dx^2 + dy^2 = dr^2 +r^2d\varphi^2.$$
+\vskip 4mm
+В частности, если уравнение эллипса задано в параметрической форме 
+\vskip 3mm
+$$\overline{r}=\overline{r}(\varphi)=(a\cos\varphi, b\sin\varphi),\quad a\ge b >0, $$
+\vskip 3mm
+и угол $\varphi$ между осью $Ox$ и радиус-вектором $\overline{r}$ изменяется от нуля до $2\pi$, то для дифференциала длины дуги эллипса имеем
+\vskip 3mm
+$$ds = \sqrt{a^2\sin^2\varphi + b^2\cos^2\varphi}d\varphi$$
+\vskip 3mm
+\begin{example} Найти длину дуги кривой (циклоиды)
+\begin{equation}
+\left\{
+\begin{array}{l}
+\ds x= \quad R(t-\sin t), \\
+\ds y= \quad R(1- \cos t),
+\end{array}
+\right.
+\end{equation}\
+\vskip 3mm
+где $0 \le t \le \theta \le 2\pi$. Имеем: $ds^2=dx^2 + dy^2, \quad ds^2=4R^2sin^2\dfrac{t}{2}(dt)^2, \quad ds= \\
+2Rsin(\dfrac{t}{2})dt.$ Следовательно,
+\vskip 4mm
+$$s=s(\theta)=4R(1-cos\dfrac{\theta}{2}).$$
+\vskip 4mm
+Заметим, что эта кривая задает траекторию движения точки на ободе катящегося колеса радиуса $R$.
+\end{example}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

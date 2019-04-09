@@ -1,0 +1,10 @@
+\textwidth=16cm
+\topmargin=-0.5in     %hplj
+\textheight=25cm  %hplj
+\oddsidemargin=0mm
+\newcommand{\rmd}{{\rm d}}
+\newcommand{\dfrac}[2]{ {\displaystyle #1 \over \displaystyle #2} }
+\makeatletter
+\renewcommand{\baselinestretch}{1.2}
+\makeatother
+

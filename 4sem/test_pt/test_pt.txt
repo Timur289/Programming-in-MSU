@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <pthread.h>
+#include <unistd.h>
+
+void *tFunc(void *arg)
+{printf("Hello from Thread!\n");}
+
+
+int main(void)
+{
+pthread_t tchild;
+pthread_create(&tchild,NULL,&tFunc,NULL);
+pthread_join(tchild,NULL);
+return 0;
+}
+

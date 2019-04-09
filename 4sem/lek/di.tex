@@ -1,0 +1,96 @@
+\documentclass[12pt,titlepage]{report}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{textcomp}
+\usepackage[utf8]{inputenc}
+%\usepackage[koi8-r]{inputenc}
+\usepackage[dvips]{graphics,epsfig}
+%\usepackage{weird,queer,latexsym}
+\usepackage{latexsym} 
+\pagestyle{empty}
+\frenchspacing
+\textwidth=16cm
+\textheight=25cm
+\topmargin=-0.5in
+\oddsidemargin=0mm
+\newcommand\ds{\displaystyle}
+\newtheorem{object}{Определение}
+\newtheorem{approval}{Утверждение}
+\newtheorem{theorem}{Теорема}
+\newtheorem{example}{Пример}
+\newtheorem{lemma}{Лемма}
+\newtheorem{task}{Задача}
+\newtheorem{sledstvie}{Следствие}
+\addto\captionsrussian{\renewcommand\chaptername{Лекция}}
+\def\R{\mathbb R}
+\def\N{\mathbb N}
+\def\dx{{\rm d}x}
+\def\dxy{{\rm d}xy}
+
+\setcounter{object}{0}
+\setcounter{approval}{0}
+\setcounter{theorem}{0}
+\setcounter{example}{0}
+\begin{document}
+\chapter{Криволинейные интегралы}
+\centerline{\bf Автор: Максимова Диана}
+\vskip 3mm
+\ \par Криволинейные интегралы --- это интегралы по кривой $L$ в $n$--мерном пространстве. Мы рассмотрим два вида
+таких интегралов : интегралы первого и второго рода. 
+\par Сделаем некоторые допущения. Пространство, в котором задана кривая L, будем для простоты считать двумерным. 
+Саму кривую L будем считать кусочно-гладкой, т.е. ее можно разбить на конечное число гладких кусков (участков).
+ Будем рассматривать только один такой кусок.
+\par Как известно, кривая $L$ является образом некоторого отрезка $[a,b]$ при отображении $\overline r=
+\overline r (t), t\in[a,b]$, где $\overline r (t)=(x(t),y(t))$, причем $x(t)$ и $y(t)$ --- гладкие функции
+на отрезке $[a,b]$. Кроме того, внутренние точки отрезка переходят во ``внутренние'' точки кривой, а концы
+отрезка --- точки $a$ и $b$ --- переходят в граничные точки кривой $A$ и $B$, т.е. $\overline r(a)=A,\overline r(b)=B$.
+ Будем предполагать, что кривая $L$ невырожденна, т.е. не содержит особых точек. Другими словами, для любого 
+$t\in[a,b]$ вектор $\overline r (t)$ отличен от нуля.
+\par Пусть $T$ --- размеченное разбиение отрезка $[a,b] : a = t_0 < t_1 < \ldots < t_m = b, \xi_1,\ldots,\xi_m$ 
+--- точки разметки, $x_k = x(\xi_k),y_k = y(\xi_k), k = 1,\ldots,m;\Delta l_k$ --- длина части кривой $L$, 
+которая является образом отрезка $\Delta_k = [t_{k-1},t_k]$. Для рассматриваемой кривой $L$ длина кривой выражается
+ по формуле
+$$
+\Delta l_k = \int\limits_{t_{k-1}}^{t_k}\sqrt {(x'(t))^2+(y'(t))^2}dt.
+$$
+\par Пусть функция $g(x,y)$ определена на кривой $L$.
+\vskip 1mm
+\begin{object}
+Если существует предел при $\Delta T\to0$ интегральных сумм
+$$
+\sigma_1(T)=\sum\limits_{k=1}^m g(x_k,y_k)\Delta l_k,
+$$
+то он называется \textbf{интегралом первого рода} от функции $g(x,y)$ по кривой $g(x,y)$. 
+\end{object}
+\par Этот интеграл обозначается так:
+$$
+I_1=\int\limits_L g(x,y)dl.
+$$
+\par Рассмотрим интегральную сумму $\sigma_2(T)$, где
+$$
+\sigma_2(T)=\sum\limits_{k=1}^m g(x_k,y_k)\Delta x_k,\Delta x_k=x(t_k) - x(t_{k-1}).
+$$
+\begin{object}
+Если существует предел $I_2$ интегральных сумм $\sigma_2(T)$ при $\Delta_T\to0$, то он называется \textbf{интегралом второго рода} от функции $g(x,y)$ в направлении от $A$ до $B$.
+\end{object}
+\par Обозначается этот интеграл символом
+$$
+I_2=\int\limits_{AB} g(x,y)dx.
+$$
+Аналогично определяется еще один интеграл второго рода
+$$
+I_3=\int\limits_{AB}g(x,y)dy.
+$$
+Для интегралов $I_2$ и $I_3$ обычно употребляются обозначения
+$$
+I_2=\int\limits_{AB} P(x,y)dx,\quad I_3=\int\limits_AB Q(x,y)dy.
+$$
+Выражение
+$$
+I=\int\limits_{AB} P(x,y)dx+Q(x,y)dy
+$$
+называется \textbf{общим криволинейным интегралом второго рода} по кривой $L=AB$ от линейной дифференциальной
+формы $Pdx+Qdy$ (здесь кривая обозначается своими начальной и конечной точками).
+\end{document}

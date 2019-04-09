@@ -1,0 +1,65 @@
+\documentclass[12pt,titlepage]{report}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{textcomp}
+\usepackage[utf8]{inputenc}
+\usepackage[koi8-r]{inputenc}
+%\usepackage[dvips]{graphics,epsfig}
+%\usepackage{weird,queer,latexsym}
+%\usepackage{latexsym} 
+\pagestyle{empty}
+\frenchspacing
+\textwidth=16cm
+\textheight=25cm
+\topmargin=-0.5in
+\oddsidemargin=0mm
+\newcommand\ds{\displaystyle}
+\newtheorem{object}{Определение}
+\newtheorem{approval}{Утверждение}
+\newtheorem{theorem}{Теорема}
+\newtheorem{example}{Пример}
+\newtheorem{lemma}{Лемма}
+\newtheorem{task}{Задача}
+\newtheorem{sledstvie}{Следствие}
+\addto\captionsrussian{\renewcommand\chaptername{Лекция}}
+\def\R{\mathbb R}
+\def\N{\mathbb N}
+\def\dx{{\rm d}x}
+\def\dxy{{\rm d}xy}
+
+\begin{document}
+\pagestyle{plain}
+\title{\textbf{ЛЕКЦИИ \\ПО МАТЕМАТИЧЕСКОМУ \\АНАЛИЗУ}}
+\author{\textbf{Архипов Г.И., Садовничий В.А., Чубариков В.Н.}}
+\date{февраль, 2012}
+\maketitle
+\newcounter{number}[chapter]
+\input{01_Ali.tex}
+\input{02_Aruz.tex}
+\input{03_A_Leyla.tex}
+\input{04_Veronika.tex}
+\input{05_Elnur.tex}
+\input{06_Nazrin.tex}
+\input{07_Emil.tex}
+\input{08_Orxan.tex}
+\input{09_Sabina.tex}
+\input{10_Mamedguseyn.tex}
+\input{211_1_cavid.tex}
+%\input{Ema.tex}
+\input{213_Sakina.tex}
+\setcounter{chapter}{12}
+\chapter{Истоки алгебры}
+\section{Алгебра вкратце}
+\section{Некоторые }
+\setcounter{section}{2}
+\input {211_2_Nicat.tex}
+\setcounter{chapter}{13}
+\chapter{}
+\input {211_3_ruslan.tex}
+\input {211_4_Alisa.tex}
+\input {211_5_Viktor.tex}
+\input{literature.tex}
+\tableofcontents
+\end{document}
