@@ -9,6 +9,7 @@ sem_t sem;
 sem_t bibliotekorsha;
 sem_t database;
 sem_t cherniyvxod;
+sem_t prioritet;
 
 unsigned int n = 0;
 unsigned int m = 0;
@@ -24,6 +25,7 @@ int main(void){
   sem_init(&bibliotekorsha,0,1);
   sem_init(&database,0,1);
   sem_init(&cherniyvxod,0,1);
+  sem_init(&prioritet,0,1);
   printf("sldg");
   for(i = 0; i < N; i++){
     res = pthread_create(&ch[i], NULL, chitatel, &i);
@@ -54,8 +56,9 @@ int main(void){
   sem_destroy(&sem);
   sem_destroy(&bibliotekorsha);
   sem_destroy(&database);
+  sem_destroy(&prioritet);
   sem_destroy(&cherniyvxod);
-
+  
   printf("Done\n\n");
   return EXIT_SUCCESS;
 }
@@ -66,18 +69,20 @@ void *chitatel(void *arg){
   int i;
   sem_post(&sem);//запускаем по очереди
   for(i = 0; i < 3; i++) {
+	if(m) {
+		sem_wait(&prioritet);
+		sem_post(&prioritet);
+	}
     sem_wait(&bibliotekorsha);//просим библиотекоршу оформить пропуск
     n++;
-    //if(n == 1) sem_wait(&database); //первый читатель присваевает библиотеку читателям
+    if(n == 1) sem_wait(&database); //первый читатель присваевает библиотеку читателям
     sem_post(&bibliotekorsha); //библиотекорша дает читателю пропуск и ждет следующего посетителя
-   // if(n == 1) sem_wait(&database);
     printf("Reader %d is reading\n\n", id + 1);
-    sleep(2);
+    sleep(3);
     sem_wait(&bibliotekorsha); //выходим и оформляемся у библиотекорши
     n--;
     sem_post(&bibliotekorsha); //уходим и отпускаем библиотекоршу
     if(n == 0)  sem_post(&database); //последний читатель ушел и открыл библиотеку писателям
-    //sleep(15);
   }
   return NULL;
 }
@@ -89,14 +94,21 @@ void *pisatel(void *arg) {
   for(i = 0; i < 2; i++){
     sem_wait(&cherniyvxod);//просим библиотекоршу оформить пропуск
     m++;
-    if(m == 1) sem_wait(&database); //первый писатель присваевает библиотеку писателям
+    if(m == 1) {
+		sem_wait(&prioritet);
+		sem_wait(&database); //первый писатель присваевает библиотеку писателям
+    }
     sem_post(&cherniyvxod); //библиотекорша дает писателю пропуск и ждет следующего посетителя
     printf("Writer %d is writing\n\n", id + 1);
     sleep(6);
     sem_wait(&cherniyvxod); //выходим к черному входу
     m--;
     sem_post(&cherniyvxod); //уходим через черный вход
-    if(m == 0)  sem_post(&database);
+    if(m == 0) {
+		sem_post(&prioritet);
+		sem_post(&database);
+	}
   }
   return NULL;
 }
+
