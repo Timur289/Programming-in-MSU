@@ -9,7 +9,9 @@ sem_t sem;
 sem_t bibliotekorsha;
 sem_t database;
 sem_t cherniyvxod;
+pthread_mutex_t sost;
 
+int sostbibl = 0;
 unsigned int n = 0;
 unsigned int m = 0;
 
@@ -55,6 +57,7 @@ int main(void){
   sem_destroy(&bibliotekorsha);
   sem_destroy(&database);
   sem_destroy(&cherniyvxod);
+  pthread_mutex_destroy(&sost);
 
   printf("Done\n\n");
   return EXIT_SUCCESS;
@@ -66,11 +69,10 @@ void *chitatel(void *arg){
   int i;
   sem_post(&sem);//запускаем по очереди
   for(i = 0; i < 3; i++) {
+	 
     sem_wait(&bibliotekorsha);//просим библиотекоршу оформить пропуск
     n++;
-    //if(n == 1) sem_wait(&database); //первый читатель присваевает библиотеку читателям
     sem_post(&bibliotekorsha); //библиотекорша дает читателю пропуск и ждет следующего посетителя
-   // if(n == 1) sem_wait(&database);
     printf("Reader %d is reading\n\n", id + 1);
     sleep(2);
     sem_wait(&bibliotekorsha); //выходим и оформляемся у библиотекорши
@@ -86,6 +88,7 @@ void *pisatel(void *arg) {
   int id = *(int *)arg;
   int i;
   sem_post(&sem);
+  
   for(i = 0; i < 2; i++){
     sem_wait(&cherniyvxod);//просим библиотекоршу оформить пропуск
     m++;
