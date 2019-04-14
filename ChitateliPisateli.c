@@ -25,6 +25,7 @@ int main(void){
   sem_init(&bibl,0,0);
   sem_init(&database,0,1);
   sem_init(&pis,0,1);
+  pthread_mutex_init(&sost,0);
   for(i = 0; i < N; i++){
     res = pthread_create(&ch[i], NULL, chitatel, &i);
     if(res) return EXIT_FAILURE;
@@ -95,13 +96,13 @@ void *pisatel(void *arg) {
 	if(!sostbibl) {
 		sostbibl--;
 		pthread_mutex_unlock(&sost);
-		sem_wait(&pis);
+		sem_wait(&bibl);
 		printf("Writer %d is writing\n\n", id + 1);
 		sleep(6);
 		pthread_mutex_lock(&sost);
 		sostbibl = 0;
 		pthread_mutex_unlock(&sost);
-		sem_post(&pis);
+		sem_post(&bibl);
 	}
 	else {
 		printf("Pisatel ne mojet zayti v bibl\n\n");

@@ -23,21 +23,21 @@ void *pisateli_func(void *arg)
         {
 			sos--;
 			pthread_mutex_unlock(&sostoyanie);
-			printf("Писатель %d зашёл в библиотеку\n\n",idp);
+			printf("Pisatel %d zashel v biblioteku\n\n",idp);
 			sleep(1+rand()%3);
 			pthread_mutex_lock(&sostoyanie);
 			sos=0;
 			pthread_mutex_unlock(&sostoyanie);
-			printf("Писатель %d вышел из библиотеки.\n",idp);
-			sem_post(&pisatel); 
+			printf("Pisatel %d vishel iz biblioteki.\n",idp);
+			sem_post(&pisatel);
 			sem_post(&chitatel);
 			sleep(rand()%3);
 		}
 		else
 		{
-			pthread_mutex_unlock(&sostoyanie);	
-			printf("Писатель %d не может зайти в библиотеку.\n",idp);
-			sem_wait(&pisatel);		
+			pthread_mutex_unlock(&sostoyanie);
+			printf("Pisatel %d ne mojet zayti v biblioteku.\n",idp);
+			sem_wait(&pisatel);
 		}
     }
     return NULL;
@@ -56,7 +56,7 @@ void *chitateli_func(void *arg)
         {
 			sos++;
 			pthread_mutex_unlock(&sostoyanie);
-			printf("Читатель %d зашёл в библиотеку.\n",idc);
+			printf("Chitatel %d zashel v biblioteku.\n",idc);
 			if(jduwie_chitateli==1)
 			{
 				sem_post(&chitatel);
@@ -66,15 +66,15 @@ void *chitateli_func(void *arg)
 			pthread_mutex_lock(&sostoyanie);
 			sos--;
 			pthread_mutex_unlock(&sostoyanie);
-			
+
 			if(idc==1)
 			{
 				 k++;
-				 printf("Первый читатель вышел.__________\n");
+				 printf("Perviy Chitatel vishel.__________\n");
 			}
 			else
 			{
-				printf("Читатель %d вышел из библиотеки\n",idc);
+				printf("Chitatel %d vishel iz biblioteki\n",idc);
 			}
 			if(k==3)
 			{
@@ -92,7 +92,7 @@ void *chitateli_func(void *arg)
 		else
 		{
 			pthread_mutex_unlock(&sostoyanie);
-			printf("Читатель %d не может зайти в библиотеку\n",idc);
+			printf("Chitatel %d ne mojet zayti v biblioteku\n",idc);
 			sem_wait(&chitatel);
 			jduwie_chitateli=1;
 		}
@@ -114,22 +114,22 @@ int main(void)
 		result1=pthread_create(&chitateli[id-1],NULL,chitateli_func,&id);
 		if(result1!=0)
 		{
-			printf("Читатель %d умер в зародыше\n", id);
+			printf("Chitatel %d умер v зародыше\n", id);
 			return EXIT_FAILURE;
 		}
-	//	else printf("Читатель %d появился на свет\n", id);
+	//	else printf("Chitatel %d появился на свет\n", id);
 		sem_wait(&chit);
 	}
-	
+
 	for(id=1; id<6; id++)
 	{
 		result2=pthread_create(&pisateli[id-1],NULL,pisateli_func,&id);
 		if(result2!=0)
 		{
-			printf("Писатель %d умер в зародыше\n", id);
+			printf("Pisatel %d умер v зародыше\n", id);
 			return EXIT_FAILURE;
 		}
-	//	else printf("Писатель %d появился на свет\n", id);
+	//	else printf("Pisatel %d появился на свет\n", id);
 		sem_wait(&pis);
 	}
 
@@ -138,19 +138,19 @@ int main(void)
 		result1=pthread_join(chitateli[0],NULL);
 		if(result1!=0)
 		{
-			printf("Читатель %d играет в прятки", id);
+			printf("Chitatel %d играет v прятки", id);
 			return EXIT_FAILURE;
 		}
 	//	else printf("Вижу читателя %d \n", id);
 		return 0;
 	}
-	
+
 	for(id=1; id<6; id++)
 	{
 		result2=pthread_join(pisateli[id-1],NULL);
 		if(result2!=0)
 		{
-			printf("Писатель %d играет в прятки", id);
+			printf("Pisatel %d играет v прятки", id);
 			return EXIT_FAILURE;
 		}
 		//else printf("Вижу писателя %d\n", id);
