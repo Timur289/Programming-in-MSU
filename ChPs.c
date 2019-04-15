@@ -63,14 +63,14 @@ void *pisateli(void *arg) {
 			pthread_mutex_unlock(&database);
       p[loc_id]++;
 			printf("Pisatel %d zashel v biblioteku\n\n", loc_id + 1);
-			sleep(1 + rand()%3);
+			sleep(rand()%10);
 			pthread_mutex_lock(&database);
 			sost = 0;
 			pthread_mutex_unlock(&database);
 			printf("Pisatel %d vishel iz biblioteki.\n\n", loc_id + 1);
 			sem_post(&pisatel);
 		  sem_post(&chitatel);
-			sleep(rand()%3);
+			sleep(rand()%5);
 		}
 		else {
 			pthread_mutex_unlock(&database);
@@ -95,13 +95,13 @@ void *chitateli(void *arg) {
 				sem_post(&chitatel);
 				ojidaniye = 0;
 			}
-			sleep(rand()%3);
+			sleep(rand()%5);
 			pthread_mutex_lock(&database);
 			sost--;
 			if(!sost) sem_post(&pisatel);
       printf("Chiatatel %d vishel iz biblioteki.\n\n", loc_id + 1);
 			pthread_mutex_unlock(&database);
-			sleep(rand()%3 + 4);
+			sleep(rand()%5);
 		}
 		else {
 			pthread_mutex_unlock(&database);

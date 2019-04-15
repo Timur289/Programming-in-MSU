@@ -31,7 +31,7 @@ int main(void) {
 	else {
 		for(i = 0; i < M; i++) {
 			shag = (h/M) * i;
-			fprintf(f, "%0.2lf %0.2lf\n", shag, u[i]);
+			fprintf(f, "%0.2lf %0.2lf 0\n", shag, u[i]);
 		}
 	}
 	return 0;
