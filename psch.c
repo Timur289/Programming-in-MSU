@@ -10,7 +10,7 @@ sem_t pisatel;
 sem_t sem;
 sem_t chitatel;
 pthread_mutex_t database;
-int sost=0, ojidaniyeC = 0, ojidaniyeP = 0;
+int sost=0, ojidaniyeP = 0;
 int c[N], p[M];
 
 void *pisateli(void *);
@@ -87,13 +87,14 @@ void *pisateli(void *arg) {
 
 void *chitateli(void *arg) {
 	int loc_id = *(int *)arg;
+	int ojidaniyeC = 0;
 	sem_post(&sem);
 	while(1) {
 		pthread_mutex_lock(&database);
 		if(sost >= 0 && !ojidaniyeP) {
   			sost++;
-			c[loc_id]++;
   			pthread_mutex_unlock(&database);
+  			c[loc_id]++;
   			printf("Chitatel %d zashel v biblioteku.\n\n", loc_id + 1);
 			if(ojidaniyeC) {
 				sem_post(&chitatel);
