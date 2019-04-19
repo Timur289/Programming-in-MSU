@@ -10,7 +10,7 @@ sem_t pisatel;
 sem_t sem;
 sem_t chitatel;
 pthread_mutex_t database;
-int sost=0;
+int sost=0, n = 0;
 int c[N], p[M];
 
 void *pisateli(void *);
@@ -40,7 +40,7 @@ int main(void) {
       sem_wait(&sem);
   }
 
-  sleep(60);
+  sleep(160);
 
   for(i = 0; i < N; i++) printf("Chitatel %d bil v biblioteke %d raz\n\n", i+1, c[i]);
   for(i = 0; i < M; i++) printf("Pisatel %d bil v biblioteke %d raz\n\n", i+1, p[i]);
@@ -63,14 +63,13 @@ void *pisateli(void *arg) {
 			pthread_mutex_unlock(&database);
 			p[loc_id]++;
 			printf("Pisatel %d zashel v biblioteku\n\n", loc_id + 1);
-			sleep(rand()%10);
+			sleep(rand()%3);
 			pthread_mutex_lock(&database);
 			sost = 0;
 			pthread_mutex_unlock(&database);
 			printf("Pisatel %d vishel iz biblioteki.\n\n", loc_id + 1);
-			sem_post(&chitatel);
 			sem_post(&pisatel);
-			
+			sem_post(&chitatel);
 			sleep(rand()%5);
 		}
 		else {
@@ -84,7 +83,6 @@ void *pisateli(void *arg) {
 
 void *chitateli(void *arg) {
 	int loc_id = *(int *)arg;
-	int ojidaniye = 0;
 	sem_post(&sem);
 	while(1) {
 	  pthread_mutex_lock(&database);
@@ -93,10 +91,6 @@ void *chitateli(void *arg) {
   			pthread_mutex_unlock(&database);
   			c[loc_id]++;
   			printf("Chitatel %d zashel v biblioteku.\n\n", loc_id + 1);
-			if(ojidaniye > 0) {
-				sem_post(&chitatel);
-				ojidaniye = 0;
-			}
 			sleep(rand()%5);
 			pthread_mutex_lock(&database);
 			sost--;
@@ -108,7 +102,6 @@ void *chitateli(void *arg) {
 		else {
 			pthread_mutex_unlock(&database);
 			printf("Chitatel %d ne mojet zayti v biblioteku\n\n", loc_id + 1);
-			ojidaniye = 1;
 			sem_wait(&chitatel);
 		}
 	}

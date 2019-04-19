@@ -4,7 +4,7 @@
 #include <semaphore.h>
 #include <unistd.h>
 #define N 40
-#define M 10
+#define M 40
 
 sem_t pisatel;
 sem_t sem;
@@ -55,7 +55,8 @@ int main(void) {
 }
 
 void dispetcher(){
-	if(ojidaniyeC/(ojidaniyeP + 1) > 1) {
+	printf("C: %d\t P: %d\n\n", ojidaniyeC, ojidaniyeP);
+	if(ojidaniyeC > ojidaniyeP) {
 		priorC = 1;
 		priorP = 0;
 	}
@@ -70,7 +71,8 @@ void *pisateli(void *arg) {
   sem_post(&sem);
   while(1) {
 	pthread_mutex_lock(&database);
-    if(!sost && !priorC) {
+	dispetcher();
+    if(!sost && priorP == 1) {
 		sost--;
 		pthread_mutex_unlock(&database);
 		p[loc_id]++;
@@ -103,16 +105,13 @@ void *chitateli(void *arg) {
 	while(1) {
 		pthread_mutex_lock(&database);
 		dispetcher();
-		if(sost >= 0 && !priorP) {
+		if(sost >= 0 && priorC == 1) {
   			sost++;
 			c[loc_id]++;
   			pthread_mutex_unlock(&database);
   			printf("Chitatel %d zashel v biblioteku.\n\n", loc_id + 1);
-			if(ojidaniyeC) {
-				sem_post(&chitatel);
-				ojidaniyeC = 0;
-			}
 			//sleep(rand()%3);
+			sem_post(&chitatel);
 			pthread_mutex_lock(&database);
 			sost--;
 			if(!sost) sem_post(&pisatel);
@@ -121,11 +120,13 @@ void *chitateli(void *arg) {
 			//sleep(rand()%5);
 		}
 		else {
+			ojidaniyeC++;
 			pthread_mutex_unlock(&database);
 			printf("Chitatel %d ne mojet zayti v biblioteku\n\n", loc_id + 1);
-			ojidaniyeC++;
 			sem_wait(&chitatel);
+			pthread_mutex_lock(&database);
 			ojidaniyeC--;
+			pthread_mutex_unlock(&database);
 		}
 	}
 	return NULL;
