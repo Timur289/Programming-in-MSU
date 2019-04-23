@@ -9,5 +9,5 @@ set xtics nomirror
 set ytics nomirror
 set xzeroaxis lt 1 lw 4 lc 3
 set yzeroaxis lt 1 lw 4 lc 3
-set output 'gamid1.eps'
-plot "Gamid.txt" with lines
+set output 'prim9.eps'
+plot "data2.txt" with lines

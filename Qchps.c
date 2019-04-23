@@ -4,13 +4,14 @@
 #include <semaphore.h>
 #include <unistd.h>
 #define N 40
-#define M 40
+#define M 10
 
 sem_t pisatel;
 sem_t sem;
 sem_t chitatel;
 pthread_mutex_t database;
-int sost=0, ojidaniyeC = 0, ojidaniyeP = 0, priorP = 0, priorC = 1;
+int sost=0, priorP = 0, priorC = 1;
+double ojidaniyeC = 0, ojidaniyeP = 0;
 int c[N], p[M];
 
 void *pisateli(void *);
@@ -41,7 +42,7 @@ int main(void) {
       sem_wait(&sem);
   }
 
-  sleep(10);
+  sleep(60);
 
   for(i = 0; i < N; i++) printf("Chitatel %d bil v biblioteke %d raz\n\n", i+1, c[i]);
   for(i = 0; i < M; i++) printf("Pisatel %d bil v biblioteke %d raz\n\n", i+1, p[i]);
@@ -55,14 +56,16 @@ int main(void) {
 }
 
 void dispetcher(){
-	printf("C: %d\t P: %d\n\n", ojidaniyeC, ojidaniyeP);
-	if(ojidaniyeC > ojidaniyeP) {
+	printf("C: %0.2lf\t P: %0.2lf\n\n", ojidaniyeC, ojidaniyeP);
+	if(ojidaniyeC/N >= ojidaniyeP/M) {
 		priorC = 1;
 		priorP = 0;
+		sem_post(&chitatel);
 	}
 	else {
 		priorC = 0;
 		priorP = 1;	
+		sem_post(&pisatel);
 	}
 }
 
@@ -77,14 +80,14 @@ void *pisateli(void *arg) {
 		pthread_mutex_unlock(&database);
 		p[loc_id]++;
 		printf("Pisatel %d zashel v biblioteku\n\n", loc_id + 1);
-		//sleep(rand()%10);
+		sleep(rand()%2);
 		pthread_mutex_lock(&database);
 		sost = 0;
 		pthread_mutex_unlock(&database);
 		printf("Pisatel %d vishel iz biblioteki.\n\n", loc_id + 1);
 		sem_post(&pisatel);
 		sem_post(&chitatel);
-		//sleep(rand()%5);
+		sleep(rand()%3);
 	}
 	else {
         ojidaniyeP++;
@@ -110,14 +113,14 @@ void *chitateli(void *arg) {
 			c[loc_id]++;
   			pthread_mutex_unlock(&database);
   			printf("Chitatel %d zashel v biblioteku.\n\n", loc_id + 1);
-			//sleep(rand()%3);
+			sleep(rand()%2);
 			sem_post(&chitatel);
 			pthread_mutex_lock(&database);
 			sost--;
 			if(!sost) sem_post(&pisatel);
 			printf("Chiatatel %d vishel iz biblioteki.\n\n", loc_id + 1);
 			pthread_mutex_unlock(&database);
-			//sleep(rand()%5);
+			sleep(rand()%3);
 		}
 		else {
 			ojidaniyeC++;

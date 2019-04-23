@@ -1,0 +1,94 @@
+\documentclass[12pt,english,russian]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[dvips]{graphics,epsfig}
+\frenchspacing
+\pagestyle{empty}
+\input set.txt
+\begin{document}
+Рассмотрим следующие задачи: 
+\begin{equation}
+	\label{integral}	
+	\alpha \int_x^\infty \frac{dt}{t\sqrt{1+t^4}} = \int_0^x \frac{dt}{\sqrt{1+t^4}};
+\end{equation}
+
+
+\begin{equation}
+		\label{uravneniya_1}
+		\begin{array}{l}
+			u_t=4u_{xx}-\sin t+\sin x,\quad x\in(0,\pi /2),\\
+			u|_{x=0}=\cos t ,\qquad u_x|_{x=\pi /2}=0,\\
+			u|_{t=0}=1-\sin{5x};
+		\end{array}
+	\end{equation}
+
+Решить систему $\dot x=Ax$, $x\in\mathbb{R}^3,$ и найти $e^{At}$
+	
+	\begin{equation}
+		A=\begin{pmatrix}
+			 7 & -1 & 7\\
+		     10 & 0 & 10\\
+			 -2 & 1 & -2
+		  \end{pmatrix}
+	\end{equation}
+	
+(хар-кий мн-н: $\lambda^3-5\lambda^2$)
+	
+	\begin{equation}
+		\label{uravneniya_3}
+		\begin{cases}
+			u_{tt}=u_{xx},\quad t>0,\;x>0,\\
+			u|_{t=0}=0,\quad {u_t|}_{t=0}=0,\\
+			(u_{x}-2u)|_{x=0}=e^{t}.
+		\end{cases}
+	\end{equation}
+
+Задача (\ref{integral}) состоит в нахождении корня уравнения, при её решении необходимо ознакомиться с пособием \cite{Valedinskiy}.
+При решении задач (\ref{uravneniya_1})--(\ref{uravneniya_3}) необходимы знания из курса дифференициальных уравнений.
+
+На четвёртом году обучения в рамках курса ``Численные методы''{} будет подробно рассматриваться проблематика численного решения подобных задач.
+
+
+	\begin{thebibliography}{1}
+		\bibitem{Valedinskiy}
+		\emph {Валединский В.Д., Корнев А.А.} Методы программирования в примерах и задачах. М.: Изд-во механико--математического ф-та МГУ, 2000.
+	\end{thebibliography}
+
+\vskip 10mm
+	\begin{center}
+	{\epsfxsize= 90mm \epsfbox{001.eps}}
+	\end{center}
+	
+\vskip 10mm
+	\begin{center}
+	{\bf $F(x,y) = \sqrt{x^2 + y^2} + 3\cos\sqrt{x^2 + y^2} + 5$}
+	{\epsfxsize= 90mm \epsfbox{prim9.eps}}
+	\end{center}
+	
+\vskip 10mm
+	\begin{center}
+	{\bf Приближение дифференциального уравнения}
+	{\epsfxsize= 90mm \epsfbox{gamid.eps}}
+	\end{center}
+	
+\vskip 30 mm
+\begin{center}
+	\begin{picture}(100,10)(0,0)
+    \put(100,0){\vector(0,1){100}}
+	\put(0,50){\vector(1,0){200}}
+	\put(90,40){0}
+	\put(100,75){\line(1,-1){25}}
+	\put(100,75){\line(-1,-1){25}}
+	\put(100,25){\line(1,1){25}}
+	\put(100,25){\line(-1,1){25}}
+	\put(125,40){$l$}
+	\put(60,40){$-l$}
+	\put(92,75){$h$}
+	\put(102,22){$-h$}
+	\end{picture}
+\end{center}
+
+\end{document}
+

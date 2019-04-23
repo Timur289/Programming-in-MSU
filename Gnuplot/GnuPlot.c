@@ -9,8 +9,8 @@ FILE *fout=NULL;
 fout=fopen("data2.txt","w");
 for(i=0;i<11;i++) {
 for(j=0;j<11;j++)
-fprintf(fout,"%lg %lg %lg\n",x[i],y[j],cos(x[i])*cos(y[j]) );
-fprintf(fout," \n");
+fprintf(fout,"%lg %lg %lg\n",x[i],y[j],sqrt(x[i]*x[i] + y[i]*y[i]) + 3*cos(sqrt(x[i]*x[i] + y[i]*y[i])) + 5);
+//fprintf(fout," \n");
 }
 return 0;
 }

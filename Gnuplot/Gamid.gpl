@@ -1,0 +1,15 @@
+#! /usr/bin/gnuplot
+set xlabel "x"
+set ylabel "y"
+unset key
+set xrange [-15:15]
+set yrange [-15:15]
+set zrange [*:*]
+set surface
+set contour base
+set view 60,30,1.0,1.0
+set isosamples 100
+set cntrparam levels auto 10
+set terminal postscript eps enhanced
+set output 'prim9.eps'
+splot sqrt(x*x + y*y) + 3*cos(sqrt(x*x + y*y)) + 5
