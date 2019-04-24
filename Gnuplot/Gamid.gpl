@@ -1,16 +1,15 @@
 #! /usr/bin/gnuplot
 set xlabel "x"
 set ylabel "y"
-set zlabel"z=0"
 unset key
-set xrange [0:2]
-set yrange [-10:10]
-set zrange [*:*]
-set surface 
+set xrange [-15:15]
+set yrange [-15:15]
+set zrange [-15:-15]
+set surface
 set contour base
-set view 55,18,1.0,1.0
-set cntrparam levels auto 12
-set pm3d
-set terminal postscript eps enhanced color
-set output 'prim8.eps'
-splot 'Gamid.txt' w l
+set view 60,30,1.0,1.0
+set isosamples 100
+set cntrparam levels auto 10
+set terminal postscript eps enhanced
+set output 'Graph.eps'
+splot x**4+y**4+z**4-5*(x**2+y**2+z**4)+10
