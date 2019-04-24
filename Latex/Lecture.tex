@@ -313,6 +313,7 @@
 	
 	\vskip 5 mm
 	\begin{lemma}
+	\label{lemma1}
 		Если $O(a) = n < \infty$, то
 		\begin{enumerate}
 			\item все элементы $e = a^0,a,a^2,\dots ,a^{n-1}$ различны;
@@ -329,11 +330,16 @@
 	\end{enumerate}
 	
 	
-	
-	
-	
-	
-	
+	\begin{lemma}
+	\label{lemma2}
+		Пусть $O(a) = n < \infty$. Тогда $a^k = e$ тогда и только тогда, когда $k = nq$.
+	\end{lemma}
+	\textit{Доказательство}
+	\begin{enumerate}
+		\item Если  $k = nq$, то $a^k = (a^n)^q = e^q = e$.
+		\item Допустим противное, т.е. что $k=nq+r$, где $0 \leq r < n$. 
+		Тогда, $a^k = (a^n)^qa^r = ea^r = a^r\ne e$ (по лемме \ref{lemma1}).  Получили противоречие \quad $\square$
+	\end{enumerate}
 	
 	
 \end{document}
