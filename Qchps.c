@@ -92,7 +92,7 @@ void *pisateli(void *arg) {
 	else {
         ojidaniyeP++;
 		pthread_mutex_unlock(&database);
-		printf("Pisatel %d ne mojet zayti v biblioteku.\n\n", loc_id + 1);
+		//printf("Pisatel %d ne mojet zayti v biblioteku.\n\n", loc_id + 1);
 		sem_wait(&pisatel);
 		pthread_mutex_lock(&database);
 		ojidaniyeP--;
@@ -125,7 +125,7 @@ void *chitateli(void *arg) {
 		else {
 			ojidaniyeC++;
 			pthread_mutex_unlock(&database);
-			printf("Chitatel %d ne mojet zayti v biblioteku\n\n", loc_id + 1);
+			//printf("Chitatel %d ne mojet zayti v biblioteku\n\n", loc_id + 1);
 			sem_wait(&chitatel);
 			pthread_mutex_lock(&database);
 			ojidaniyeC--;

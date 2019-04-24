@@ -11,7 +11,7 @@
 Рассмотрим следующие задачи: 
 \begin{equation}
 	\label{integral}	
-	\alpha \int_x^\infty \frac{dt}{t\sqrt{1+t^4}} = \int_0^x \frac{dt}{\sqrt{1+t^4}};
+	\alpha \int_x^\infty \frac{\rmd t}{t\sqrt{1+t^4}} = \int_0^x \frac{\rmd t}{\sqrt{1+t^4}};
 \end{equation}
 
 
@@ -24,7 +24,7 @@
 		\end{array}
 	\end{equation}
 
-Решить систему $\dot x=Ax$, $x\in\mathbb{R}^3,$ и найти $e^{At}$
+Решить систему $\dot x=Ax$, $x\in\mathbb{R}^3$, и найти $e^{At}$
 	
 	\begin{equation}
 		A=\begin{pmatrix}
@@ -53,7 +53,7 @@
 
 	\begin{thebibliography}{1}
 		\bibitem{Valedinskiy}
-		\emph {Валединский В.Д., Корнев А.А.} Методы программирования в примерах и задачах. М.: Изд-во механико--математического ф-та МГУ, 2000.
+		\emph {Валединский В.Д., Корнев А.А.} Методы программирования в примерах и задачах. М.: Изд-во механико--математического ф--та МГУ, 2000.
 	\end{thebibliography}
 
 \vskip 10mm
@@ -89,6 +89,18 @@
 	\put(102,22){$-h$}
 	\end{picture}
 \end{center}
+
+\begin{equation}
+z_c = \frac{\iiint_V z\rho(x,y,z)\rmd x \rmd y \rmd z}{\iiint_V \rho(x,y,z)\rmd x \rmd y \rmd z}
+\end{equation}
+
+\begin{equation}
+\int_Q f(x)\cos{nx}\rmd x = \int_Q (f(x) - T_{n-1}(f,x)_1)\cos{nx}\rmd x + \int_Q T_{n-1}(f,x)_1\cos{nx}\rmd x 
+\end{equation}
+
+\begin{equation}
+S_n(g,x) = \frac{1}{2\pi} \int_{-\pi}^\pi g(x + t)\frac{\sin{(n+\frac{1}{2}})}{\sin{\frac{t}{2}}} \rmd t
+\end{equation}
 
 \end{document}
 
