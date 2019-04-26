@@ -11,6 +11,6 @@ set pm3d
 set view 60,30,1.0,1.0
 set isosamples 100
 set cntrparam levels auto 10
-set terminal postscript eps enhanced color
+set terminal postscript eps color
 set output 'Graph01.eps'
-splot (0.4**2-(0.6-(x**2+y**2)**0.5)**2)**0.5
+splot 1-abs(x+y)-abs(y-x) lt palette cb -50
