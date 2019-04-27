@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2016/dev) (preloaded format=pdflatex 2016.11.4)  26 APR 2019 16:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2016/dev) (preloaded format=pdflatex 2016.11.4)  27 APR 2019 13:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -650,42 +650,40 @@ Underfull \hbox (badness 10000) in paragraph at lines 69--70
 
  []
 
-[1
-
-{/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for U+msa on input line 78.
-
+LaTeX Font Info:    Try loading font information for U+msa on input line 76.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 78.
+LaTeX Font Info:    Try loading font information for U+msb on input line 76.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 78.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 76.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
-) [2]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 162.
+) [1
+
+{/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}] [2]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 160.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 162.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 160.
  [3] [4] [5] [6]
 [7] [8] (./problema.aux) ) 
 Here is how much of TeX's memory you used:
- 3239 strings out of 493204
- 39114 string characters out of 6141983
+ 3243 strings out of 493204
+ 39165 string characters out of 6141983
  102258 words of memory out of 5000000
- 6608 multiletter control sequences out of 15000+600000
- 17752 words of font info for 48 fonts, out of 8000000 for 9000
+ 6610 multiletter control sequences out of 15000+600000
+ 19377 words of font info for 50 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 37i,8n,24p,246b,177s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,8n,24p,598b,177s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-sup
 er/cm-super-t2a.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cme
@@ -700,14 +698,15 @@ s/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type
 c/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
 /amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 cm-super/sfbx1200.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-supe
-r/sfbx1440.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx2
-488.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/cm-super/sfti1440.pfb>
-Output written on problema.pdf (8 pages, 231396 bytes).
+r/sfbx1440.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx1
+728.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/cm-super/sfti1440.pfb>
+Output written on problema.pdf (8 pages, 244916 bytes).
 PDF statistics:
- 104 PDF objects out of 1000 (max. 8388607)
- 75 compressed objects within 1 object stream
+ 108 PDF objects out of 1000 (max. 8388607)
+ 78 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
