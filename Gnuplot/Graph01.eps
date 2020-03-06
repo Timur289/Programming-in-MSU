@@ -1,7 +1,7 @@
 %!PS-Adobe-2.0 EPSF-2.0
 %%Title: Graph01.eps
-%%Creator: gnuplot 5.0 patchlevel 3
-%%CreationDate: Fri Apr 26 11:03:08 2019
+%%Creator: gnuplot 5.2 patchlevel 6
+%%CreationDate: Wed May 01 21:53:00 2019
 %%DocumentFonts: (atend)
 %%BoundingBox: 50 50 410 302
 %%EndComments
@@ -48,7 +48,7 @@ gnudict begin
   } if
 } def
 %
-% Gnuplot Prolog Version 5.1 (Oct 2015)
+% Gnuplot Prolog Version 5.2 (Dec 2017)
 %
 %/SuppressPDFMark true def
 %
@@ -305,7 +305,7 @@ gnudict begin
   ColR ColG ColB setrgbcolor} def
 /BoxColFill {gsave Rec PolyFill} def
 /PolyFill {gsave Density fill grestore grestore} def
-/h {rlineto rlineto rlineto gsave closepath fill grestore} bind def
+/h {rlineto rlineto rlineto closepath gsave fill grestore stroke} bind def
 %
 % PostScript Level 1 Pattern Fill routine for rectangles
 % Usage: x y w h s a XX PatternFill
@@ -429,15 +429,79 @@ Level1 {Level1PatternFill} {Level2PatternFill} ifelse
 dup length dict begin {1 index /FID eq {pop pop} {def} ifelse} forall
 currentdict end definefont pop
 %
+%
+% encoding for code page cp1251 (8-bit Russian)
+% version 1.0:  - Mainly letters are mapped. The following positions
+% (JFi)           are left blank (undefined):
+%               -- first 32 positions,
+%               -- frame characters,
+%               -- a few special characters.
+
+/reencodeCP1251 {
+dup dup findfont dup length dict begin
+{ 1 index /FID ne { def }{ pop pop } ifelse } forall
+currentdict /CharStrings known {
+CharStrings /Idieresis known {
+/Encoding CP1251Encoding def } if
+} if
+currentdict end definefont
+} def
+/CP1251Encoding [
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/space /exclam /quotedbl /numbersign /dollar /percent /ampersand /quotesingle
+/parenleft /parenright /asterisk /plus /comma /minus /period /slash
+/zero /one /two /three /four /five /six /seven
+/eight /nine /colon /semicolon /less /equal /greater /question
+/at /A /B /C /D /E /F /G
+/H /I /J /K /L /M /N /O
+/P /Q /R /S /T /U /V /W
+/X /Y /Z /bracketleft /backslash /bracketright /asciicircum /underscore
+/grave /a /b /c /d /e /f /g
+/h /i /j /k /l /m /n /o
+/p /q /r /s /t /u /v /w
+/x /y /z /braceleft /bar /braceright /asciitilde /.notdef
+/afii10051 /afii10052 /quotesinglbase /afii10100 /quotedblbase /ellipsis /dagger /daggerdbl
+/Euro /perthousand /afii10058 /guilsinglleft /afii10059 /afii10061 /afii10060 /afii10145
+/afii10099 /quoteleft /quoteright /quotedblleft /quotedblright /bullet /endash /emdash
+/.notdef /trademark /afii10106 /guilsinglright /afii10107 /afii10109 /afii10108 /afii10193
+/space /afii10062 /afii10110 /afii10057 /currency /afii10050 /brokenbar /section
+/afii10023 /copyright /afii10053 /guillemotleft /logicalnot /hyphen /registered /afii10056
+/degree /plusminus /afii10055 /afii10103 /afii10098 /mu /paragraph /periodcentered
+/afii10071 /afii61352 /afii10101 /guillemotright /afii10105 /afii10054 /afii10102 /afii10104
+/afii10017 /afii10018 /afii10019 /afii10020 /afii10021 /afii10022 /afii10024 /afii10025
+/afii10026 /afii10027 /afii10028 /afii10029 /afii10030 /afii10031 /afii10032 /afii10033
+/afii10034 /afii10035 /afii10036 /afii10037 /afii10038 /afii10039 /afii10040 /afii10041
+/afii10042 /afii10043 /afii10044 /afii10045 /afii10046 /afii10047 /afii10048 /afii10049
+/afii10065 /afii10066 /afii10067 /afii10068 /afii10069 /afii10070 /afii10072 /afii10073
+/afii10074 /afii10075 /afii10076 /afii10077 /afii10078 /afii10079 /afii10080 /afii10081
+/afii10082 /afii10083 /afii10084 /afii10085 /afii10086 /afii10087 /afii10088 /afii10089
+/afii10090 /afii10091 /afii10092 /afii10093 /afii10094 /afii10095 /afii10096 /afii10097
+] def
+
+/Metrics {ExtendTextBox Gswidth} def
+/Lwidth {currentpoint stroke M 0 vshift R Metrics} def
+/Rwidth {currentpoint stroke M dup stringwidth pop neg vshift R Metrics} def
+/Cwidth {currentpoint stroke M dup stringwidth pop -2 div vshift R Metrics} def
+/GLwidth {currentpoint stroke M 0 vshift R {ExtendTextBox} forall} def
+/GRwidth {currentpoint stroke M dup Gwidth vshift R {ExtendTextBox} forall} def
+/GCwidth {currentpoint stroke M dup Gwidth 2 div vshift R {ExtendTextBox} forall} def
+/GLwidth2 {0 Gwidth AddGlyphWidth} def
+/GRwidth2 {Gwidth -1 mul 0 AddGlyphWidth} def
+/GCwidth2 {Gwidth 2 div dup -1 mul AddGlyphWidth} def
+/AddGlyphWidth { dup TBx2 gt {userdict /TBx2 3 -1 roll put} {pop} ifelse
+                 dup TBx1 lt {userdict /TBx1 3 -1 roll put} {pop} ifelse } def
 /MFshow {
    { dup 5 get 3 ge
      { 5 get 3 eq {gsave} {grestore} ifelse }
      {dup dup 0 get findfont exch 1 get scalefont setfont
      [ currentpoint ] exch dup 2 get 0 exch R dup 5 get 2 ne {dup dup 6
-     get exch 4 get {textshow} {stringwidth pop 0 R} ifelse }if dup 5 get 0 eq
+     get exch 4 get {textshow} {Metrics pop 0 R} ifelse }if dup 5 get 0 eq
      {dup 3 get {2 get neg 0 exch R pop} {pop aload pop M} ifelse} {dup 5
-     get 1 eq {dup 2 get exch dup 3 get exch 6 get stringwidth pop -2 div
-     dup 0 R} {dup 6 get stringwidth pop -2 div 0 R 6 get
+     get 1 eq {dup 2 get exch dup 3 get exch 6 get Gswidth pop -2 div
+     dup 0 R} {dup 6 get Gswidth pop -2 div 0 R 6 get
      textshow 2 index {aload pop M neg 3 -1 roll neg R pop pop} {pop pop pop
      pop aload pop M} ifelse }ifelse }ifelse }
      ifelse }
@@ -457,6 +521,7 @@ currentdict end definefont pop
   Blacktext {gsave 0 setgray MFshow grestore} {MFshow} ifelse } bind def
 /XYsave    { [( ) 1 2 true false 3 ()] } bind def
 /XYrestore { [( ) 1 2 true false 4 ()] } bind def
+/Helvetica reencodeCP1251 def
 Level1 SuppressPDFMark or 
 {} {
 /SDict 10 dict def
@@ -466,42 +531,39 @@ systemdict /pdfmark known not {
 SDict begin [
   /Title (Graph01.eps)
   /Subject (gnuplot plot)
-  /Creator (gnuplot 5.0 patchlevel 3)
-  /Author (student)
+  /Creator (gnuplot 5.2 patchlevel 6)
 %  /Producer (gnuplot)
 %  /Keywords ()
-  /CreationDate (Fri Apr 26 11:03:08 2019)
+  /CreationDate (Wed May 01 21:53:00 2019)
   /DOCINFO pdfmark
 end
 } ifelse
 %
-% Support for boxed text - Ethan A Merritt May 2005
+% Support for boxed text - Ethan A Merritt Sep 2016
 %
 /InitTextBox { userdict /TBy2 3 -1 roll put userdict /TBx2 3 -1 roll put
            userdict /TBy1 3 -1 roll put userdict /TBx1 3 -1 roll put
 	   /Boxing true def } def
-/ExtendTextBox { Boxing
-    { gsave dup false charpath pathbbox
+/ExtendTextBox { dup type /stringtype eq
+    { Boxing { gsave dup false charpath pathbbox
       dup TBy2 gt {userdict /TBy2 3 -1 roll put} {pop} ifelse
       dup TBx2 gt {userdict /TBx2 3 -1 roll put} {pop} ifelse
       dup TBy1 lt {userdict /TBy1 3 -1 roll put} {pop} ifelse
       dup TBx1 lt {userdict /TBx1 3 -1 roll put} {pop} ifelse
-      grestore } if } def
+      grestore } if }
+    {} ifelse} def
 /PopTextBox { newpath TBx1 TBxmargin sub TBy1 TBymargin sub M
                TBx1 TBxmargin sub TBy2 TBymargin add L
 	       TBx2 TBxmargin add TBy2 TBymargin add L
 	       TBx2 TBxmargin add TBy1 TBymargin sub L closepath } def
 /DrawTextBox { PopTextBox stroke /Boxing false def} def
-/FillTextBox { gsave PopTextBox 1 1 1 setrgbcolor fill grestore /Boxing false def} def
+/FillTextBox { gsave PopTextBox fill grestore /Boxing false def} def
 0 0 0 0 InitTextBox
 /TBxmargin 20 def
 /TBymargin 20 def
 /Boxing false def
 /textshow { ExtendTextBox Gshow } def
 %
-% redundant definitions for compatibility with prologue.ps older than 5.0.2
-/LTB {BL [] LCb DL} def
-/LTb {PL [] LCb DL} def
 end
 %%EndProlog
 %%Page: 1 1
@@ -528,10 +590,6 @@ gsave % colour palette begin
   } ifelse} def
 /Constrain {
   dup 0 lt {0 exch pop}{dup 1 gt {1 exch pop} if} ifelse} def
-/YIQ2RGB {
-  3 copy -1.702 mul exch -1.105 mul add add Constrain 4 1 roll
-  3 copy -0.647 mul exch -0.272 mul add add Constrain 5 1 roll
-  0.621 mul exch -0.956 mul add add Constrain 3 1 roll } def
 /CMY2RGB {  1 exch sub exch 1 exch sub 3 2 roll 1 exch sub 3 1 roll exch } def
 /XYZ2RGB {  3 copy -0.9017 mul exch -0.1187 mul add exch 0.0585 mul exch add
   Constrain 4 1 roll 3 copy -0.0279 mul exch 1.999 mul add exch
@@ -581,16 +639,18 @@ stroke
 LTb
 LCb setrgbcolor
 971 1249 M
-47 27 V
+39 22 V
 stroke
 LTb
 LCb setrgbcolor
 2896 2356 M
--48 -27 V
+-39 -22 V
 stroke
-908 1188 M
+919 1199 M
 [ [(Helvetica) 140.0 0.0 true true 0 (-1)]
 ] -46.7 MCshow
+/Helvetica findfont 140 scalefont setfont
+/vshift -46 def
 1.000 UL
 LTb
 LCb setrgbcolor
@@ -598,16 +658,17 @@ LCb setrgbcolor
 LTb
 LCb setrgbcolor
 1804 1089 M
-48 27 V
+39 22 V
 stroke
 LTb
 LCb setrgbcolor
 3728 2197 M
--47 -28 V
+-38 -23 V
 stroke
-1741 1028 M
+1753 1039 M
 [ [(Helvetica) 140.0 0.0 true true 0 (-0.5)]
 ] -46.7 MCshow
+/Helvetica findfont 140 scalefont setfont
 1.000 UL
 LTb
 LCb setrgbcolor
@@ -615,16 +676,17 @@ LCb setrgbcolor
 LTb
 LCb setrgbcolor
 2638 929 M
-47 27 V
+39 22 V
 stroke
 LTb
 LCb setrgbcolor
 4562 2037 M
--47 -28 V
+-39 -23 V
 stroke
-2575 868 M
+2586 880 M
 [ [(Helvetica) 140.0 0.0 true true 0 ( 0)]
 ] -46.7 MCshow
+/Helvetica findfont 140 scalefont setfont
 1.000 UL
 LTb
 LCb setrgbcolor
@@ -632,16 +694,17 @@ LCb setrgbcolor
 LTb
 LCb setrgbcolor
 3472 769 M
-47 27 V
+38 22 V
 stroke
 LTb
 LCb setrgbcolor
 5396 1877 M
--48 -27 V
+-39 -22 V
 stroke
-3408 709 M
+3420 720 M
 [ [(Helvetica) 140.0 0.0 true true 0 ( 0.5)]
 ] -46.7 MCshow
+/Helvetica findfont 140 scalefont setfont
 1.000 UL
 LTb
 LCb setrgbcolor
@@ -649,16 +712,17 @@ LCb setrgbcolor
 LTb
 LCb setrgbcolor
 4304 609 M
-48 28 V
+39 23 V
 stroke
 LTb
 LCb setrgbcolor
 6229 1717 M
--47 -27 V
+-39 -22 V
 stroke
-4241 549 M
+4253 560 M
 [ [(Helvetica) 140.0 0.0 true true 0 ( 1)]
 ] -46.7 MCshow
+/Helvetica findfont 140 scalefont setfont
 1.000 UL
 LTb
 LCb setrgbcolor
@@ -666,16 +730,17 @@ LCb setrgbcolor
 LTb
 LCb setrgbcolor
 4304 609 M
--54 11 V
+-67 13 V
 stroke
 LTb
 LCb setrgbcolor
 971 1249 M
-54 -11 V
+67 -13 V
 stroke
-4377 586 M
+4393 581 M
 [ [(Helvetica) 140.0 0.0 true true 0 (-1)]
-] -46.7 MCshow
+] -46.7 MLshow
+/Helvetica findfont 140 scalefont setfont
 1.000 UL
 LTb
 LCb setrgbcolor
@@ -683,16 +748,17 @@ LCb setrgbcolor
 LTb
 LCb setrgbcolor
 4785 886 M
--54 11 V
+-67 13 V
 stroke
 LTb
 LCb setrgbcolor
 1452 1526 M
-55 -11 V
+67 -13 V
 stroke
-4858 863 M
+4875 858 M
 [ [(Helvetica) 140.0 0.0 true true 0 (-0.5)]
-] -46.7 MCshow
+] -46.7 MLshow
+/Helvetica findfont 140 scalefont setfont
 1.000 UL
 LTb
 LCb setrgbcolor
@@ -700,16 +766,17 @@ LCb setrgbcolor
 LTb
 LCb setrgbcolor
 5267 1163 M
--55 11 V
+-67 13 V
 stroke
 LTb
 LCb setrgbcolor
 1933 1803 M
-55 -11 V
+67 -13 V
 stroke
-5339 1140 M
+5356 1135 M
 [ [(Helvetica) 140.0 0.0 true true 0 ( 0)]
-] -46.7 MCshow
+] -46.7 MLshow
+/Helvetica findfont 140 scalefont setfont
 1.000 UL
 LTb
 LCb setrgbcolor
@@ -717,16 +784,17 @@ LCb setrgbcolor
 LTb
 LCb setrgbcolor
 5748 1440 M
--55 10 V
+-67 13 V
 stroke
 LTb
 LCb setrgbcolor
 2415 2080 M
-54 -11 V
+67 -13 V
 stroke
-5821 1417 M
+5837 1411 M
 [ [(Helvetica) 140.0 0.0 true true 0 ( 0.5)]
-] -46.7 MCshow
+] -46.7 MLshow
+/Helvetica findfont 140 scalefont setfont
 1.000 UL
 LTb
 LCb setrgbcolor
@@ -734,16 +802,17 @@ LCb setrgbcolor
 LTb
 LCb setrgbcolor
 6229 1717 M
--54 10 V
+-67 13 V
 stroke
 LTb
 LCb setrgbcolor
 2896 2356 M
-54 -10 V
+67 -12 V
 stroke
-6302 1694 M
+6318 1688 M
 [ [(Helvetica) 140.0 0.0 true true 0 ( 1)]
-] -46.7 MCshow
+] -46.7 MLshow
+/Helvetica findfont 140 scalefont setfont
 1.000 UL
 LTb
 LCb setrgbcolor
@@ -756,6 +825,7 @@ stroke
 845 1987 M
 [ [(Helvetica) 140.0 0.0 true true 0 ( 0)]
 ] -46.7 MRshow
+/Helvetica findfont 140 scalefont setfont
 1.000 UL
 LTb
 LCb setrgbcolor
@@ -768,6 +838,7 @@ stroke
 845 2283 M
 [ [(Helvetica) 140.0 0.0 true true 0 ( 0.2)]
 ] -46.7 MRshow
+/Helvetica findfont 140 scalefont setfont
 1.000 UL
 LTb
 LCb setrgbcolor
@@ -780,6 +851,7 @@ stroke
 845 2578 M
 [ [(Helvetica) 140.0 0.0 true true 0 ( 0.4)]
 ] -46.7 MRshow
+/Helvetica findfont 140 scalefont setfont
 1.000 UL
 LTb
 LCb setrgbcolor
@@ -792,6 +864,7 @@ stroke
 845 2872 M
 [ [(Helvetica) 140.0 0.0 true true 0 ( 0.6)]
 ] -46.7 MRshow
+/Helvetica findfont 140 scalefont setfont
 1.000 UL
 LTb
 LCb setrgbcolor
@@ -804,6 +877,7 @@ stroke
 845 3168 M
 [ [(Helvetica) 140.0 0.0 true true 0 ( 0.8)]
 ] -46.7 MRshow
+/Helvetica findfont 140 scalefont setfont
 1.000 UL
 LTb
 LCb setrgbcolor
@@ -816,15 +890,16 @@ stroke
 845 3463 M
 [ [(Helvetica) 140.0 0.0 true true 0 ( 1)]
 ] -46.7 MRshow
+/Helvetica findfont 140 scalefont setfont
 1.000 UL
 LTb
 LCb setrgbcolor
 1.000 UP
 % Begin plot #1
-%pm3d_map_begin
 1.000 UL
 LTb
-0 g .0202 g 3252 2668 N 19 -49 34 54 -20 -12 h
+0 g %pm3d_map_begin
+.0202 g 3252 2668 N 19 -49 34 54 -20 -12 h
 .0303 g 3285 2661 N 19 -48 34 -7 -19 49 h
 .0303 g 3319 2655 N 20 -49 33 -6 -19 48 h
 .0303 g 3353 2648 N 19 -48 34 -7 -20 49 h
@@ -3334,7 +3409,6 @@ LTb
 8 13 V
 .0303 g 3232 2656 M
 34 54 V
-stroke 3266 2710 M
 .0505 g 3266 2710 M
 34 -7 V
 .0505 g 3300 2703 M
@@ -3439,7 +3513,6 @@ stroke 3266 2710 M
 34 53 V
 .0707 g 3247 2698 M
 33 54 V
-stroke 3280 2752 M
 .0909 g 3280 2752 M
 34 -7 V
 .0909 g 3314 2745 M
@@ -3480,6 +3553,7 @@ stroke 3280 2752 M
 34 -6 V
 .0909 g 3919 2629 M
 34 -7 V
+stroke 3953 2622 M
 .0909 g 3953 2622 M
 33 -6 V
 .0909 g 3986 2616 M
@@ -3544,7 +3618,6 @@ stroke 3280 2752 M
 34 53 V
 .1111 g 3261 2740 M
 33 54 V
-stroke 3294 2794 M
 .1313 g 3294 2794 M
 34 -7 V
 .1313 g 3328 2787 M
@@ -3649,7 +3722,6 @@ stroke 3294 2794 M
 34 53 V
 .1515 g 3275 2782 M
 34 54 V
-stroke 3309 2836 M
 .1717 g 3309 2836 M
 33 -7 V
 .1717 g 3342 2829 M
@@ -3732,6 +3804,7 @@ stroke 3309 2836 M
 34 -7 V
 .1717 g 4655 2578 M
 34 -6 V
+stroke 4689 2572 M
 .1515 g 4689 2572 M
 33 -66 V
 .1111 g 4722 2506 M
@@ -3754,7 +3827,6 @@ stroke 3309 2836 M
 33 53 V
 .1919 g 3289 2824 M
 34 54 V
-stroke 3323 2878 M
 .2121 g 3323 2878 M
 34 -7 V
 .2121 g 3357 2871 M
@@ -3859,7 +3931,6 @@ stroke 3323 2878 M
 33 54 V
 .2323 g 3303 2867 M
 34 53 V
-stroke 3337 2920 M
 .2525 g 3337 2920 M
 34 -7 V
 .2525 g 3371 2913 M
@@ -3964,7 +4035,6 @@ stroke 3337 2920 M
 34 54 V
 .2727 g 3318 2909 M
 33 53 V
-stroke 3351 2962 M
 .2929 g 3351 2962 M
 34 -7 V
 .2929 g 3385 2955 M
@@ -3985,6 +4055,7 @@ stroke 3351 2962 M
 34 -6 V
 .2929 g 3654 2904 M
 33 -7 V
+stroke 3687 2897 M
 .2929 g 3687 2897 M
 34 -6 V
 .2929 g 3721 2891 M
@@ -4069,7 +4140,6 @@ stroke 3351 2962 M
 34 54 V
 .3131 g 3332 2951 M
 34 53 V
-stroke 3366 3004 M
 .3333 g 3366 3004 M
 33 -7 V
 .3333 g 3399 2997 M
@@ -4174,7 +4244,6 @@ stroke 3366 3004 M
 33 54 V
 .3535 g 3346 2993 M
 34 53 V
-stroke 3380 3046 M
 .3737 g 3380 3046 M
 34 -7 V
 .3737 g 3414 3039 M
@@ -4237,6 +4306,7 @@ stroke 3380 3046 M
 33 -6 V
 .3737 g 4389 2852 M
 34 -6 V
+stroke 4423 2846 M
 .3535 g 4423 2846 M
 34 -67 V
 .3131 g 4457 2779 M
@@ -4279,7 +4349,6 @@ stroke 3380 3046 M
 33 54 V
 .3939 g 3360 3035 M
 34 53 V
-stroke 3394 3088 M
 .4141 g 3394 3088 M
 34 -7 V
 .4141 g 3428 3081 M
@@ -4384,7 +4453,6 @@ stroke 3394 3088 M
 34 54 V
 .4343 g 3375 3077 M
 33 53 V
-stroke 3408 3130 M
 .4545 g 3408 3130 M
 34 -7 V
 .4545 g 3442 3123 M
@@ -4594,7 +4662,6 @@ stroke 3423 3172 M
 34 54 V
 .5152 g 3403 3161 M
 34 53 V
-stroke 3437 3214 M
 .5354 g 3437 3214 M
 33 -7 V
 .5354 g 3470 3207 M
@@ -4699,7 +4766,6 @@ stroke 3437 3214 M
 33 54 V
 .5556 g 3417 3203 M
 34 53 V
-stroke 3451 3256 M
 .5758 g 3451 3256 M
 34 -7 V
 .5758 g 3485 3249 M
@@ -4742,6 +4808,7 @@ stroke 3451 3256 M
 34 -6 V
 .5758 g 4124 3127 M
 33 -7 V
+stroke 4157 3120 M
 .5556 g 4157 3120 M
 34 -66 V
 .5152 g 4191 3054 M
@@ -4804,7 +4871,6 @@ stroke 3451 3256 M
 34 53 V
 .596 g 3432 3245 M
 33 53 V
-stroke 3465 3298 M
 .6162 g 3465 3298 M
 34 -7 V
 .6162 g 3499 3291 M
@@ -4909,7 +4975,6 @@ stroke 3465 3298 M
 34 53 V
 .6364 g 3446 3287 M
 34 53 V
-stroke 3480 3340 M
 .6566 g 3480 3340 M
 33 -7 V
 .6566 g 3513 3333 M
@@ -4994,6 +5059,7 @@ stroke 3480 3340 M
 33 54 V
 .2727 g 3123 2797 M
 34 53 V
+stroke 3157 2850 M
 .3131 g 3157 2850 M
 34 53 V
 .3535 g 3191 2903 M
@@ -5014,7 +5080,6 @@ stroke 3480 3340 M
 34 53 V
 .6768 g 3460 3329 M
 34 53 V
-stroke 3494 3382 M
 .697 g 3494 3382 M
 33 -6 V
 .697 g 3527 3376 M
@@ -5119,7 +5184,6 @@ stroke 3494 3382 M
 33 53 V
 .7172 g 3474 3371 M
 34 53 V
-stroke 3508 3424 M
 .7374 g 3508 3424 M
 34 -6 V
 .7374 g 3542 3418 M
@@ -5224,7 +5288,6 @@ stroke 3508 3424 M
 34 53 V
 .7576 g 3489 3413 M
 33 53 V
-stroke 3522 3466 M
 .7778 g 3522 3466 M
 34 -6 V
 .7778 g 3556 3460 M
@@ -5247,6 +5310,7 @@ stroke 3522 3466 M
 34 -7 V
 .7778 g 3858 3401 M
 34 -6 V
+stroke 3892 3395 M
 .7576 g 3892 3395 M
 33 -66 V
 .7172 g 3925 3329 M
@@ -5329,7 +5393,6 @@ stroke 3522 3466 M
 34 53 V
 .798 g 3503 3455 M
 33 53 V
-stroke 3536 3508 M
 .8182 g 3536 3508 M
 34 -6 V
 .8182 g 3570 3502 M
@@ -5434,7 +5497,6 @@ stroke 3536 3508 M
 34 53 V
 .8384 g 3517 3497 M
 34 53 V
-stroke 3551 3550 M
 .8586 g 3551 3550 M
 33 -6 V
 .8586 g 3584 3544 M
@@ -5499,6 +5561,7 @@ stroke 3551 3550 M
 34 54 V
 .0707 g 2858 2476 M
 33 53 V
+stroke 2891 2529 M
 .1111 g 2891 2529 M
 34 53 V
 .1515 g 2925 2582 M
@@ -5539,7 +5602,6 @@ stroke 3551 3550 M
 33 53 V
 .8788 g 3531 3539 M
 34 53 V
-stroke 3565 3592 M
 .899 g 3565 3592 M
 34 -6 V
 .899 g 3599 3586 M
@@ -5644,7 +5706,6 @@ stroke 3565 3592 M
 33 53 V
 .9192 g 3545 3581 M
 34 53 V
-stroke 3579 3634 M
 .9394 g 3579 3634 M
 33 -6 V
 .9394 g 3612 3628 M
@@ -5749,9 +5810,9 @@ stroke 3579 3634 M
 34 53 V
 .9596 g 3560 3623 M
 33 53 V
-stroke 3593 3676 M
 .9798 g 3593 3676 M
 33 -6 V
+stroke 3626 3670 M
 .9596 g 3626 3670 M
 34 -66 V
 .9192 g 3660 3604 M
@@ -5854,7 +5915,6 @@ stroke 3593 3676 M
 34 53 V
 .9798 g 3574 3665 M
 33 -7 V
-stroke 3607 3658 M
 .9596 g 3607 3658 M
 33 -66 V
 .9192 g 3640 3592 M
@@ -5959,7 +6019,6 @@ stroke 3607 3658 M
 34 -6 V
 .9394 g 3588 3588 M
 33 -7 V
-stroke 3621 3581 M
 .9192 g 3621 3581 M
 34 -66 V
 .8788 g 3655 3515 M
@@ -6004,6 +6063,7 @@ stroke 3621 3581 M
 34 -67 V
 .0707 g 4328 2193 M
 34 -66 V
+stroke 4362 2127 M
 .0303 g 4362 2127 M
 33 -66 V
 0 g 4395 2061 M
@@ -6064,7 +6124,6 @@ stroke 3621 3581 M
 32 -7 V
 .899 g 3601 3510 M
 34 -6 V
-stroke 3635 3504 M
 .8788 g 3635 3504 M
 34 -66 V
 .8384 g 3669 3438 M
@@ -6169,7 +6228,6 @@ stroke 3635 3504 M
 33 -6 V
 .8586 g 3616 3433 M
 33 -6 V
-stroke 3649 3427 M
 .8384 g 3649 3427 M
 34 -67 V
 .798 g 3683 3360 M
@@ -6256,6 +6314,7 @@ stroke 3649 3427 M
 34 53 V
 .798 g 3328 3354 M
 33 53 V
+stroke 3361 3407 M
 .8182 g 3361 3407 M
 34 -6 V
 .8182 g 3395 3401 M
@@ -6274,7 +6333,6 @@ stroke 3649 3427 M
 33 -6 V
 .8182 g 3630 3356 M
 34 -7 V
-stroke 3664 3349 M
 .798 g 3664 3349 M
 33 -66 V
 .7576 g 3697 3283 M
@@ -6379,7 +6437,6 @@ stroke 3664 3349 M
 34 -7 V
 .7778 g 3644 3278 M
 34 -6 V
-stroke 3678 3272 M
 .7576 g 3678 3272 M
 33 -66 V
 .7172 g 3711 3206 M
@@ -6484,7 +6541,6 @@ stroke 3678 3272 M
 33 -6 V
 .7374 g 3658 3201 M
 34 -6 V
-stroke 3692 3195 M
 .7172 g 3692 3195 M
 34 -67 V
 .6768 g 3726 3128 M
@@ -6509,6 +6565,7 @@ stroke 3692 3195 M
 33 -66 V
 .2727 g 4062 2468 M
 34 -66 V
+stroke 4096 2402 M
 .2323 g 4096 2402 M
 34 -66 V
 .1919 g 4130 2336 M
@@ -6589,7 +6646,6 @@ stroke 3692 3195 M
 34 -6 V
 .697 g 3673 3124 M
 33 -7 V
-stroke 3706 3117 M
 .6768 g 3706 3117 M
 34 -66 V
 .6364 g 3740 3051 M
@@ -6694,7 +6750,6 @@ stroke 3706 3117 M
 34 -7 V
 .6566 g 3687 3046 M
 33 -6 V
-stroke 3720 3040 M
 .6364 g 3720 3040 M
 34 -66 V
 .596 g 3754 2974 M
@@ -6761,6 +6816,7 @@ stroke 3720 3040 M
 34 53 V
 .596 g 3062 3032 M
 34 53 V
+stroke 3096 3085 M
 .6162 g 3096 3085 M
 34 -6 V
 .6162 g 3130 3079 M
@@ -6799,7 +6855,6 @@ stroke 3720 3040 M
 34 -7 V
 .6162 g 3701 2969 M
 34 -6 V
-stroke 3735 2963 M
 .596 g 3735 2963 M
 33 -67 V
 .5556 g 3768 2896 M
@@ -6904,7 +6959,6 @@ stroke 3735 2963 M
 33 -6 V
 .5758 g 3715 2892 M
 34 -7 V
-stroke 3749 2885 M
 .5556 g 3749 2885 M
 34 -66 V
 .5152 g 3783 2819 M
@@ -7009,11 +7063,11 @@ stroke 3749 2885 M
 34 -7 V
 .5354 g 3730 2814 M
 33 -6 V
-stroke 3763 2808 M
 .5152 g 3763 2808 M
 34 -66 V
 .4747 g 3797 2742 M
 34 -66 V
+stroke 3831 2676 M
 .4343 g 3831 2676 M
 33 -66 V
 .3939 g 3864 2610 M
@@ -7114,7 +7168,6 @@ stroke 3763 2808 M
 34 -7 V
 .4949 g 3744 2737 M
 33 -6 V
-stroke 3777 2731 M
 .4747 g 3777 2731 M
 34 -66 V
 .4343 g 3811 2665 M
@@ -7219,7 +7272,6 @@ stroke 3777 2731 M
 34 -6 V
 .4545 g 3758 2660 M
 34 -7 V
-stroke 3792 2653 M
 .4343 g 3792 2653 M
 33 -65 V
 .3939 g 3825 2588 M
@@ -7266,6 +7318,7 @@ stroke 3792 2653 M
 34 53 V
 .3939 g 2797 2710 M
 33 53 V
+stroke 2830 2763 M
 .4141 g 2830 2763 M
 34 -6 V
 .4141 g 2864 2757 M
@@ -7324,7 +7377,6 @@ stroke 3792 2653 M
 33 -7 V
 .4141 g 3772 2583 M
 34 -6 V
-stroke 3806 2577 M
 .3939 g 3806 2577 M
 34 -66 V
 .3535 g 3840 2511 M
@@ -7429,7 +7481,6 @@ stroke 3806 2577 M
 33 -7 V
 .3737 g 3786 2506 M
 34 -6 V
-stroke 3820 2500 M
 .3535 g 3820 2500 M
 34 -66 V
 .3131 g 3854 2434 M
@@ -7518,6 +7569,7 @@ stroke 3820 2500 M
 33 -6 V
 .3333 g 3532 2481 M
 34 -7 V
+stroke 3566 2474 M
 .3333 g 3566 2474 M
 34 -6 V
 .3333 g 3600 2468 M
@@ -7534,7 +7586,6 @@ stroke 3820 2500 M
 34 -6 V
 .3333 g 3801 2429 M
 33 -7 V
-stroke 3834 2422 M
 .3131 g 3834 2422 M
 34 -66 V
 .2727 g 3868 2356 M
@@ -7639,7 +7690,6 @@ stroke 3834 2422 M
 34 -6 V
 .2929 g 3815 2352 M
 34 -7 V
-stroke 3849 2345 M
 .2727 g 3849 2345 M
 33 -66 V
 .2323 g 3882 2279 M
@@ -7744,7 +7794,6 @@ stroke 3849 2345 M
 34 -7 V
 .2525 g 3829 2274 M
 34 -6 V
-stroke 3863 2268 M
 .2323 g 3863 2268 M
 34 -66 V
 .1919 g 3897 2202 M
@@ -7771,6 +7820,7 @@ stroke 3863 2268 M
 34 53 V
 .1919 g 2531 2389 M
 34 53 V
+stroke 2565 2442 M
 .2121 g 2565 2442 M
 33 -6 V
 .2121 g 2598 2436 M
@@ -7849,7 +7899,6 @@ stroke 3863 2268 M
 33 -6 V
 .2121 g 3843 2197 M
 34 -7 V
-stroke 3877 2190 M
 .1919 g 3877 2190 M
 34 -66 V
 .1515 g 3911 2124 M
@@ -7954,7 +8003,6 @@ stroke 3877 2190 M
 34 -6 V
 .1717 g 3858 2120 M
 33 -7 V
-stroke 3891 2113 M
 .1515 g 3891 2113 M
 34 -66 V
 .1111 g 3925 2047 M
@@ -8023,6 +8071,7 @@ stroke 3891 2113 M
 34 -6 V
 .1313 g 3267 2159 M
 33 -7 V
+stroke 3300 2152 M
 .1313 g 3300 2152 M
 34 -6 V
 .1313 g 3334 2146 M
@@ -8059,7 +8108,6 @@ stroke 3891 2113 M
 34 -7 V
 .1313 g 3872 2042 M
 34 -6 V
-stroke 3906 2036 M
 .1111 g 3906 2036 M
 33 -66 V
 .0707 g 3939 1970 M
@@ -8164,7 +8212,6 @@ stroke 3906 2036 M
 34 -6 V
 .0909 g 3886 1965 M
 34 -7 V
-stroke 3920 1958 M
 .0707 g 3920 1958 M
 33 -66 V
 .0303 g 3953 1892 M
@@ -8269,13 +8316,13 @@ stroke 3920 1958 M
 33 -6 V
 .0505 g 3900 1888 M
 34 -7 V
-stroke 3934 1881 M
 .0303 g 3934 1881 M
 34 -66 V
 0 g 3968 1815 M
 8 -17 V
 0 g 2291 2107 M
 8 13 V
+stroke 2299 2120 M
 .0101 g 2299 2120 M
 34 -6 V
 .0101 g 2333 2114 M
@@ -8374,7 +8421,6 @@ stroke 3934 1881 M
 34 -7 V
 .0101 g 3915 1810 M
 33 -6 V
-stroke 3948 1804 M
 0 g 3948 1804 M
 9 -17 V
 0 g 3257 2655 M
@@ -8479,7 +8525,6 @@ stroke 3948 1804 M
 -19 -12 V
 0 g 2299 2120 M
 -5 -17 V
-stroke 2294 2103 M
 0 g 3290 2649 M
 -5 12 V
 .0303 g 3285 2661 M
@@ -8528,6 +8573,7 @@ stroke 2294 2103 M
 -19 -11 V
 .0505 g 2858 2476 M
 -20 -12 V
+stroke 2838 2464 M
 .0505 g 2838 2464 M
 -19 -11 V
 .0505 g 2819 2453 M
@@ -8584,7 +8630,6 @@ stroke 2294 2103 M
 -5 -18 V
 0 g 3324 2643 M
 -5 12 V
-stroke 3319 2655 M
 .0303 g 3319 2655 M
 -19 48 V
 .0707 g 3300 2703 M
@@ -8689,7 +8734,6 @@ stroke 3319 2655 M
 -5 12 V
 .0303 g 3353 2648 M
 -20 49 V
-stroke 3333 2697 M
 .0707 g 3333 2697 M
 -19 48 V
 .1111 g 3314 2745 M
@@ -8780,6 +8824,7 @@ stroke 3333 2697 M
 -19 -11 V
 .1313 g 2478 2325 M
 -20 -11 V
+stroke 2458 2314 M
 .1111 g 2458 2314 M
 -19 -71 V
 .0707 g 2439 2243 M
@@ -8794,7 +8839,6 @@ stroke 3333 2697 M
 -19 48 V
 .0707 g 3367 2690 M
 -19 49 V
-stroke 3348 2739 M
 .1111 g 3348 2739 M
 -20 48 V
 .1515 g 3328 2787 M
@@ -8899,7 +8943,6 @@ stroke 3348 2739 M
 -20 48 V
 .1111 g 3381 2732 M
 -19 49 V
-stroke 3362 2781 M
 .1515 g 3362 2781 M
 -20 48 V
 .1919 g 3342 2829 M
@@ -9004,7 +9047,6 @@ stroke 3362 2781 M
 -20 48 V
 .1515 g 3395 2774 M
 -19 49 V
-stroke 3376 2823 M
 .1919 g 3376 2823 M
 -19 48 V
 .2323 g 3357 2871 M
@@ -9033,6 +9075,7 @@ stroke 3376 2823 M
 -20 -11 V
 .2525 g 3123 2797 M
 -19 -12 V
+stroke 3104 2785 M
 .2525 g 3104 2785 M
 -20 -11 V
 .2525 g 3084 2774 M
@@ -9109,7 +9152,6 @@ stroke 3376 2823 M
 -19 48 V
 .1919 g 3410 2816 M
 -20 49 V
-stroke 3390 2865 M
 .2323 g 3390 2865 M
 -19 48 V
 .2727 g 3371 2913 M
@@ -9214,7 +9256,6 @@ stroke 3390 2865 M
 -19 48 V
 .2323 g 3424 2858 M
 -19 49 V
-stroke 3405 2907 M
 .2727 g 3405 2907 M
 -20 48 V
 .3131 g 3385 2955 M
@@ -9285,6 +9326,7 @@ stroke 3405 2907 M
 -20 -11 V
 .3333 g 2743 2646 M
 -19 -11 V
+stroke 2724 2635 M
 .3131 g 2724 2635 M
 -19 -70 V
 .2727 g 2705 2565 M
@@ -9319,7 +9361,6 @@ stroke 3405 2907 M
 -20 48 V
 .2727 g 3438 2900 M
 -19 49 V
-stroke 3419 2949 M
 .3131 g 3419 2949 M
 -20 48 V
 .3535 g 3399 2997 M
@@ -9424,7 +9465,6 @@ stroke 3419 2949 M
 -20 48 V
 .3131 g 3452 2942 M
 -19 49 V
-stroke 3433 2991 M
 .3535 g 3433 2991 M
 -19 48 V
 .3939 g 3414 3039 M
@@ -9529,7 +9569,6 @@ stroke 3433 2991 M
 -19 48 V
 .3535 g 3467 2984 M
 -20 49 V
-stroke 3447 3033 M
 .3939 g 3447 3033 M
 -19 48 V
 .4343 g 3428 3081 M
@@ -9538,6 +9577,7 @@ stroke 3447 3033 M
 -19 -11 V
 .4545 g 3389 3119 M
 -20 -12 V
+stroke 3369 3107 M
 .4545 g 3369 3107 M
 -19 -11 V
 .4545 g 3350 3096 M
@@ -9634,7 +9674,6 @@ stroke 3447 3033 M
 -19 48 V
 .3939 g 3481 3026 M
 -20 49 V
-stroke 3461 3075 M
 .4343 g 3461 3075 M
 -19 48 V
 .4747 g 3442 3123 M
@@ -9739,7 +9778,6 @@ stroke 3461 3075 M
 -20 48 V
 .4343 g 3495 3068 M
 -19 49 V
-stroke 3476 3117 M
 .4747 g 3476 3117 M
 -20 48 V
 .5152 g 3456 3165 M
@@ -9790,6 +9828,7 @@ stroke 3476 3117 M
 -19 -11 V
 .5354 g 3009 2968 M
 -19 -11 V
+stroke 2990 2957 M
 .5152 g 2990 2957 M
 -20 -71 V
 .4747 g 2970 2886 M
@@ -9844,7 +9883,6 @@ stroke 3476 3117 M
 -20 48 V
 .4747 g 3509 3110 M
 -19 49 V
-stroke 3490 3159 M
 .5152 g 3490 3159 M
 -20 48 V
 .5556 g 3470 3207 M
@@ -9949,7 +9987,6 @@ stroke 3490 3159 M
 -19 48 V
 .5152 g 3524 3152 M
 -20 49 V
-stroke 3504 3201 M
 .5556 g 3504 3201 M
 -19 48 V
 .596 g 3485 3249 M
@@ -10042,6 +10079,7 @@ stroke 3504 3201 M
 -19 49 V
 .3131 g 3654 2904 M
 -20 48 V
+stroke 3634 2952 M
 .3535 g 3634 2952 M
 -19 49 V
 .3939 g 3615 3001 M
@@ -10054,7 +10092,6 @@ stroke 3504 3201 M
 -19 49 V
 .5556 g 3538 3195 M
 -20 48 V
-stroke 3518 3243 M
 .596 g 3518 3243 M
 -19 48 V
 .6364 g 3499 3291 M
@@ -10159,7 +10196,6 @@ stroke 3518 3243 M
 -20 49 V
 .596 g 3552 3237 M
 -19 48 V
-stroke 3533 3285 M
 .6364 g 3533 3285 M
 -20 48 V
 .6768 g 3513 3333 M
@@ -10264,7 +10300,6 @@ stroke 3533 3285 M
 -20 49 V
 .6364 g 3566 3279 M
 -19 48 V
-stroke 3547 3327 M
 .6768 g 3547 3327 M
 -20 49 V
 .7172 g 3527 3376 M
@@ -10295,6 +10330,7 @@ stroke 3547 3327 M
 -19 -11 V
 .7374 g 3275 3290 M
 -20 -11 V
+stroke 3255 3279 M
 .7172 g 3255 3279 M
 -19 -71 V
 .6768 g 3236 3208 M
@@ -10369,7 +10405,6 @@ stroke 3547 3327 M
 -19 49 V
 .6768 g 3581 3321 M
 -20 48 V
-stroke 3561 3369 M
 .7172 g 3561 3369 M
 -19 49 V
 .7576 g 3542 3418 M
@@ -10474,7 +10509,6 @@ stroke 3561 3369 M
 -18 49 V
 .7172 g 3595 3363 M
 -20 48 V
-stroke 3575 3411 M
 .7576 g 3575 3411 M
 -19 49 V
 .798 g 3556 3460 M
@@ -10547,6 +10581,7 @@ stroke 3575 3411 M
 -20 48 V
 .1111 g 3919 2629 M
 -19 48 V
+stroke 3900 2677 M
 .1515 g 3900 2677 M
 -20 49 V
 .1919 g 3880 2726 M
@@ -10579,7 +10614,6 @@ stroke 3575 3411 M
 -19 49 V
 .7576 g 3608 3405 M
 -18 48 V
-stroke 3590 3453 M
 .798 g 3590 3453 M
 -20 49 V
 .8384 g 3570 3502 M
@@ -10684,7 +10718,6 @@ stroke 3590 3453 M
 -20 49 V
 .798 g 3622 3447 M
 -19 48 V
-stroke 3603 3495 M
 .8384 g 3603 3495 M
 -19 49 V
 .8788 g 3584 3544 M
@@ -10789,7 +10822,6 @@ stroke 3603 3495 M
 -20 49 V
 .8384 g 3636 3489 M
 -19 48 V
-stroke 3617 3537 M
 .8788 g 3617 3537 M
 -18 49 V
 .9192 g 3599 3586 M
@@ -10800,6 +10832,7 @@ stroke 3617 3537 M
 -20 -11 V
 .9394 g 3540 3612 M
 -19 -11 V
+stroke 3521 3601 M
 .9192 g 3521 3601 M
 -20 -71 V
 .8788 g 3501 3530 M
@@ -10894,7 +10927,6 @@ stroke 3617 3537 M
 -19 49 V
 .8788 g 3651 3531 M
 -20 48 V
-stroke 3631 3579 M
 .9192 g 3631 3579 M
 -19 49 V
 .9596 g 3612 3628 M
@@ -10999,7 +11031,6 @@ stroke 3631 3579 M
 -19 49 V
 .9192 g 3665 3573 M
 -19 48 V
-stroke 3646 3621 M
 .9596 g 3646 3621 M
 -20 49 V
 .9798 g 3626 3670 M
@@ -11052,6 +11083,7 @@ stroke 3646 3621 M
 -20 -71 V
 .0303 g 3160 2030 M
 -19 -71 V
+stroke 3141 1959 M
 0 g 3141 1959 M
 -5 -18 V
 0 g 4131 2489 M
@@ -11104,7 +11136,6 @@ stroke 3646 3621 M
 -20 49 V
 .9394 g 3679 3615 M
 -19 -11 V
-stroke 3660 3604 M
 .9394 g 3660 3604 M
 -20 -12 V
 .9394 g 3640 3592 M
@@ -11209,7 +11240,6 @@ stroke 3660 3604 M
 -20 -12 V
 .899 g 3693 3537 M
 -19 -11 V
-stroke 3674 3526 M
 .899 g 3674 3526 M
 -19 -11 V
 .899 g 3655 3515 M
@@ -11304,6 +11334,7 @@ stroke 3674 3526 M
 -19 48 V
 .8384 g 3805 3456 M
 -20 49 V
+stroke 3785 3505 M
 .8586 g 3785 3505 M
 -19 -11 V
 .8586 g 3766 3494 M
@@ -11314,7 +11345,6 @@ stroke 3674 3526 M
 -19 -11 V
 .8586 g 3708 3460 M
 -20 -11 V
-stroke 3688 3449 M
 .8586 g 3688 3449 M
 -19 -11 V
 .8586 g 3669 3438 M
@@ -11419,7 +11449,6 @@ stroke 3688 3449 M
 -19 -11 V
 .8182 g 3722 3383 M
 -20 -11 V
-stroke 3702 3372 M
 .8182 g 3702 3372 M
 -19 -12 V
 .8182 g 3683 3360 M
@@ -11524,7 +11553,6 @@ stroke 3702 3372 M
 -20 -12 V
 .7778 g 3736 3305 M
 -19 -11 V
-stroke 3717 3294 M
 .7778 g 3717 3294 M
 -20 -11 V
 .7778 g 3697 3283 M
@@ -11557,6 +11585,7 @@ stroke 3717 3294 M
 -19 -71 V
 .2323 g 3426 2352 M
 -19 -71 V
+stroke 3407 2281 M
 .1919 g 3407 2281 M
 -20 -71 V
 .1515 g 3387 2210 M
@@ -11629,7 +11658,6 @@ stroke 3717 3294 M
 -20 -11 V
 .7374 g 3750 3228 M
 -19 -11 V
-stroke 3731 3217 M
 .7374 g 3731 3217 M
 -20 -11 V
 .7374 g 3711 3206 M
@@ -11734,7 +11762,6 @@ stroke 3731 3217 M
 -19 -11 V
 .697 g 3765 3151 M
 -20 -11 V
-stroke 3745 3140 M
 .697 g 3745 3140 M
 -19 -12 V
 .697 g 3726 3128 M
@@ -11809,6 +11836,7 @@ stroke 3745 3140 M
 -20 49 V
 .6364 g 4070 3182 M
 -19 48 V
+stroke 4051 3230 M
 .6566 g 4051 3230 M
 -19 -11 V
 .6566 g 4032 3219 M
@@ -11839,7 +11867,6 @@ stroke 3745 3140 M
 -19 -12 V
 .6566 g 3779 3073 M
 -20 -11 V
-stroke 3759 3062 M
 .6566 g 3759 3062 M
 -19 -11 V
 .6566 g 3740 3051 M
@@ -11944,7 +11971,6 @@ stroke 3759 3062 M
 -20 -11 V
 .6162 g 3793 2996 M
 -19 -11 V
-stroke 3774 2985 M
 .6162 g 3774 2985 M
 -20 -11 V
 .6162 g 3754 2974 M
@@ -12049,7 +12075,6 @@ stroke 3774 2985 M
 -20 -11 V
 .5758 g 3807 2919 M
 -19 -11 V
-stroke 3788 2908 M
 .5758 g 3788 2908 M
 -20 -12 V
 .5758 g 3768 2896 M
@@ -12062,6 +12087,7 @@ stroke 3788 2908 M
 -19 -71 V
 .4343 g 3691 2673 M
 -20 -71 V
+stroke 3671 2602 M
 .3939 g 3671 2602 M
 -19 -70 V
 .3535 g 3652 2532 M
@@ -12154,7 +12180,6 @@ stroke 3788 2908 M
 -19 -11 V
 .5354 g 3822 2842 M
 -20 -12 V
-stroke 3802 2830 M
 .5354 g 3802 2830 M
 -19 -11 V
 .5354 g 3783 2819 M
@@ -12259,7 +12284,6 @@ stroke 3802 2830 M
 -19 -11 V
 .4949 g 3836 2764 M
 -20 -11 V
-stroke 3816 2753 M
 .4949 g 3816 2753 M
 -19 -11 V
 .4949 g 3797 2742 M
@@ -12314,6 +12338,7 @@ stroke 3816 2753 M
 -20 49 V
 .4343 g 4336 2907 M
 -19 48 V
+stroke 4317 2955 M
 .4545 g 4317 2955 M
 -20 -11 V
 .4545 g 4297 2944 M
@@ -12364,7 +12389,6 @@ stroke 3816 2753 M
 -19 -11 V
 .4545 g 3850 2687 M
 -19 -11 V
-stroke 3831 2676 M
 .4545 g 3831 2676 M
 -20 -11 V
 .4545 g 3811 2665 M
@@ -12469,7 +12493,6 @@ stroke 3831 2676 M
 -20 -11 V
 .4141 g 3864 2610 M
 -19 -12 V
-stroke 3845 2598 M
 .4141 g 3845 2598 M
 -20 -10 V
 .4141 g 3825 2588 M
@@ -12566,6 +12589,7 @@ stroke 3845 2598 M
 -20 -11 V
 .3737 g 3956 2578 M
 -19 -11 V
+stroke 3937 2567 M
 .3737 g 3937 2567 M
 -20 -11 V
 .3737 g 3917 2556 M
@@ -12574,7 +12598,6 @@ stroke 3845 2598 M
 -20 -11 V
 .3737 g 3878 2533 M
 -19 -11 V
-stroke 3859 2522 M
 .3737 g 3859 2522 M
 -19 -11 V
 .3737 g 3840 2511 M
@@ -12679,7 +12702,6 @@ stroke 3859 2522 M
 -19 -11 V
 .3333 g 3893 2456 M
 -20 -11 V
-stroke 3873 2445 M
 .3333 g 3873 2445 M
 -19 -11 V
 .3333 g 3854 2434 M
@@ -12784,7 +12806,6 @@ stroke 3873 2445 M
 -19 -11 V
 .2929 g 3907 2379 M
 -20 -12 V
-stroke 3887 2367 M
 .2929 g 3887 2367 M
 -19 -11 V
 .2929 g 3868 2356 M
@@ -12819,6 +12840,7 @@ stroke 3887 2367 M
 -19 47 V
 .2323 g 4602 2632 M
 -20 49 V
+stroke 4582 2681 M
 .2525 g 4582 2681 M
 -19 -11 V
 .2525 g 4563 2670 M
@@ -12889,7 +12911,6 @@ stroke 3887 2367 M
 -20 -11 V
 .2525 g 3921 2301 M
 -19 -11 V
-stroke 3902 2290 M
 .2525 g 3902 2290 M
 -20 -11 V
 .2525 g 3882 2279 M
@@ -12994,7 +13015,6 @@ stroke 3902 2290 M
 -20 -11 V
 .2121 g 3935 2224 M
 -19 -11 V
-stroke 3916 2213 M
 .2121 g 3916 2213 M
 -19 -11 V
 .2121 g 3897 2202 M
@@ -13071,6 +13091,7 @@ stroke 3916 2213 M
 -19 -11 V
 .1717 g 4222 2303 M
 -20 -11 V
+stroke 4202 2292 M
 .1717 g 4202 2292 M
 -19 -11 V
 .1717 g 4183 2281 M
@@ -13099,7 +13120,6 @@ stroke 3916 2213 M
 -19 -11 V
 .1717 g 3950 2147 M
 -20 -12 V
-stroke 3930 2135 M
 .1717 g 3930 2135 M
 -19 -11 V
 .1717 g 3911 2124 M
@@ -13204,7 +13224,6 @@ stroke 3930 2135 M
 -19 -12 V
 .1313 g 3964 2069 M
 -20 -11 V
-stroke 3944 2058 M
 .1313 g 3944 2058 M
 -19 -11 V
 .1313 g 3925 2047 M
@@ -13309,7 +13328,6 @@ stroke 3944 2058 M
 -20 -11 V
 .0909 g 3978 1992 M
 -19 -11 V
-stroke 3959 1981 M
 .0909 g 3959 1981 M
 -20 -11 V
 .0909 g 3939 1970 M
@@ -13324,6 +13342,7 @@ stroke 3959 1981 M
 -5 13 V
 .0303 g 4867 2359 M
 -19 48 V
+stroke 4848 2407 M
 .0505 g 4848 2407 M
 -20 -11 V
 .0505 g 4828 2396 M
@@ -13414,7 +13433,6 @@ stroke 3959 1981 M
 -20 -11 V
 .0505 g 3992 1915 M
 -19 -11 V
-stroke 3973 1904 M
 .0505 g 3973 1904 M
 -20 -12 V
 .0505 g 3953 1892 M
@@ -13519,7 +13537,6 @@ stroke 3973 1904 M
 -19 -12 V
 .0101 g 4007 1837 M
 -20 -11 V
-stroke 3987 1826 M
 .0101 g 3987 1826 M
 -19 -11 V
 .0101 g 3968 1815 M
@@ -13530,7 +13547,8 @@ stroke
 LTb
 0 g 1.000 UL
 LTb
-0.00 0.62 0.45 C 3353 1457 M
+0.00 0.62 0.45 C
+3353 1457 M
 -7 7 V
 20 12 V
 19 11 V
@@ -13573,7 +13591,8 @@ LTb
 -33 7 V
 stroke
 LTb
-0.34 0.71 0.91 C 3088 1433 M
+0.34 0.71 0.91 C
+3088 1433 M
 -6 8 V
 20 11 V
 19 11 V
@@ -13656,7 +13675,8 @@ LTb
 -34 6 V
 stroke
 LTb
-0.90 0.62 0.00 C 3564 1268 M
+0.90 0.62 0.00 C
+3564 1268 M
 -33 7 V
 -34 6 V
 -34 7 V
@@ -13761,7 +13781,6 @@ LTb
 -20 -11 V
 -19 -12 V
 -20 -11 V
-stroke 3973 1314 M
 -19 -11 V
 -20 -11 V
 -19 -11 V
@@ -13780,7 +13799,8 @@ stroke 3973 1314 M
 -34 6 V
 stroke
 LTb
-0.94 0.89 0.26 C 4315 1383 M
+0.94 0.89 0.26 C
+4315 1383 M
 -19 -11 V
 -20 -11 V
 -19 -12 V
@@ -13885,7 +13905,6 @@ LTb
 20 11 V
 16 1 V
 33 -6 V
-stroke 3362 1824 M
 34 -7 V
 34 -6 V
 33 -6 V
@@ -13955,15 +13974,15 @@ LCb setrgbcolor
 4304 609 L
 stroke
 LCb setrgbcolor
-2157 652 M
+2252 707 M
 [ [(Helvetica) 140.0 0.0 true true 0 (x)]
 ] -46.7 MCshow
-LTb
+/Helvetica findfont 140 scalefont setfont
 LCb setrgbcolor
-6100 1003 M
+5936 1035 M
 [ [(Helvetica) 140.0 0.0 true true 0 (y)]
 ] -46.7 MCshow
-LTb
+/Helvetica findfont 140 scalefont setfont
 stroke gsave	%% draw gray scale smooth box
 maxcolors 0 gt {/imax maxcolors def} {/imax 1024 def} ifelse
 6329 2213 translate 266 1648 scale 0 setlinewidth
@@ -13993,6 +14012,7 @@ stroke
 6679 2213 M
 [ [(Helvetica) 140.0 0.0 true true 0 ( 0)]
 ] -46.7 MLshow
+/Helvetica findfont 140 scalefont setfont
 1.000 UL
 LTb
 LCb setrgbcolor
@@ -14004,6 +14024,7 @@ stroke
 6679 2377 M
 [ [(Helvetica) 140.0 0.0 true true 0 ( 0.1)]
 ] -46.7 MLshow
+/Helvetica findfont 140 scalefont setfont
 1.000 UL
 LTb
 LCb setrgbcolor
@@ -14015,6 +14036,7 @@ stroke
 6679 2542 M
 [ [(Helvetica) 140.0 0.0 true true 0 ( 0.2)]
 ] -46.7 MLshow
+/Helvetica findfont 140 scalefont setfont
 1.000 UL
 LTb
 LCb setrgbcolor
@@ -14026,6 +14048,7 @@ stroke
 6679 2707 M
 [ [(Helvetica) 140.0 0.0 true true 0 ( 0.3)]
 ] -46.7 MLshow
+/Helvetica findfont 140 scalefont setfont
 1.000 UL
 LTb
 LCb setrgbcolor
@@ -14037,6 +14060,7 @@ stroke
 6679 2872 M
 [ [(Helvetica) 140.0 0.0 true true 0 ( 0.4)]
 ] -46.7 MLshow
+/Helvetica findfont 140 scalefont setfont
 1.000 UL
 LTb
 LCb setrgbcolor
@@ -14048,6 +14072,7 @@ stroke
 6679 3037 M
 [ [(Helvetica) 140.0 0.0 true true 0 ( 0.5)]
 ] -46.7 MLshow
+/Helvetica findfont 140 scalefont setfont
 1.000 UL
 LTb
 LCb setrgbcolor
@@ -14059,6 +14084,7 @@ stroke
 6679 3201 M
 [ [(Helvetica) 140.0 0.0 true true 0 ( 0.6)]
 ] -46.7 MLshow
+/Helvetica findfont 140 scalefont setfont
 1.000 UL
 LTb
 LCb setrgbcolor
@@ -14070,6 +14096,7 @@ stroke
 6679 3366 M
 [ [(Helvetica) 140.0 0.0 true true 0 ( 0.7)]
 ] -46.7 MLshow
+/Helvetica findfont 140 scalefont setfont
 1.000 UL
 LTb
 LCb setrgbcolor
@@ -14081,6 +14108,7 @@ stroke
 6679 3531 M
 [ [(Helvetica) 140.0 0.0 true true 0 ( 0.8)]
 ] -46.7 MLshow
+/Helvetica findfont 140 scalefont setfont
 1.000 UL
 LTb
 LCb setrgbcolor
@@ -14092,6 +14120,7 @@ stroke
 6679 3696 M
 [ [(Helvetica) 140.0 0.0 true true 0 ( 0.9)]
 ] -46.7 MLshow
+/Helvetica findfont 140 scalefont setfont
 1.000 UL
 LTb
 LCb setrgbcolor
@@ -14103,6 +14132,7 @@ stroke
 6679 3861 M
 [ [(Helvetica) 140.0 0.0 true true 0 ( 1)]
 ] -46.7 MLshow
+/Helvetica findfont 140 scalefont setfont
 1.000 UL
 LTb
 LCb setrgbcolor
